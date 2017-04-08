@@ -1,0 +1,18 @@
+.view{
+        margin-top: 60px;
+}
+h1 {
+  margin-bottom: 40px;
+  font-weight: 400;
+  font-family: 'Pacifico', cursive;
+  font-size: 50px;
+}
+.sign{
+	width: 400px;
+	margin: auto;
+}
+.navbar-footer{
+	color: #fff;
+}
+/*multi carousel*/
+/*end multi carousel*/
