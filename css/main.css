@@ -1,18 +1,44 @@
 .view{
-        margin-top: 60px;
+        margin-top: 50px;
+        min-height: 500px;
+}
+a:hover{
+	text-decoration: none;
+}
+
+div.intro{
+	display: none;
+}
+.container .row div a.items:hover{
+	background-color: red;
+
+}
+.slide{
+	width: 100%;
+	height: 400px;
+	overflow: hidden;
+	margin-bottom: 20px;
 }
 h1 {
   margin-bottom: 40px;
   font-weight: 400;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Indie Flower', cursive;
   font-size: 50px;
+  color: #5C1515;
+}
+h2 {
+	font-family: 'Dancing Script', cursive;
+	margin-left: 1em;
 }
 .sign{
 	width: 400px;
 	margin: auto;
 }
-.navbar-footer{
-	color: #fff;
+.pagination{
+	margin: 10px auto;
+}
+.categogies a{
+	text-decoration: none;
 }
 /*multi carousel*/
 /*end multi carousel*/

@@ -10,19 +10,15 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/main.css">
   <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Indie+Flower" rel="stylesheet">
   <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
   </head>
   <body>
     <script type="text/ng-template" id="pages/home.html">
         <div class="container">
-         <h1>Sản phẩm nổi bật</h1>
-          <div class="row">
-            <ul class="nav nav-tabs">
-              <li class="active"><a href="#/hot">Hot Book</a></li>
-              <li class="disabled"><a href="#/best">Best Seller</a></li>
-              <li class="disabled"><a href="#/recommend">Recommend</a></li>
-            </ul>
-          </div>
           <div class="row">
           <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -35,19 +31,19 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
               <div class="item active">
-                <img ng-src="http://clipart-library.com/images/pc5rERREi.jpg" alt="Book">
+                <img ng-src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/23b7eb34266807.56cabae59a617.jpg" alt="Book">
               </div>
 
               <div class="item">
-                <img ng-src="https://img.clipartfest.com/d59ba023333f9ae8156a2c2d4bd778c0_open-book-with-words-open-book-picture-of-open-book_1307-750.jpeg" alt="Book">
+                <img ng-src="https://thenextweb.com/wp-content/blogs.dir/1/files/2013/03/magazine_rack.jpg" alt="Book">
               </div>
 
               <div class="item">
-                <img ng-src="https://img.clipartfest.com/d59ba023333f9ae8156a2c2d4bd778c0_open-book-with-words-open-book-picture-of-open-book_1307-750.jpeg" alt="Book">
+                <img ng-src="https://thenextweb.com/wp-content/blogs.dir/1/files/2013/03/magazine_rack.jpg" alt="Book">
               </div>
 
               <div class="item">
-                <img ng-src="http://clipart-library.com/images/pc5rERREi.jpg" alt="Book">
+                <img ng-src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/23b7eb34266807.56cabae59a617.jpg" alt="Book">
               </div>
             </div>
 
@@ -62,49 +58,273 @@
             </a>
           </div>
         </div>
+        <div class="row">
+           <h2>Sách khuyến mãi</h2>
+        </div>
+        <div class="row">     
+            <div class="col-sm-4 col-lg-2">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+          </div>
+          <div class="row">
+           <h2>Sách bán chạy</h2>
+        </div>
+        <div class="row">     
+            <div class="col-sm-4 col-lg-2">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+          </div>
+          <div class="row">
+           <h2>Sách mới</h2>
+        </div>
+        <div class="row">     
+            <div class="col-sm-4 col-lg-2">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="intro">Quyển sách, sẽ như những lời “hướng dẫn giữ gìn” tình yêu cho bạn, là những gì tôi đã đi trước, trải nghiệm và ghi nhận. Bạn có thể lấy nó làm hành trang vững chắc trên con đường tình yêu của mình, cũng có thể đọc để cho biết thôi, và vẫn yêu theo cách riêng mà mình muốn. Nhưng, có thể hứa với tôi một điều này không? Rằng dù bạn có chọn thế nào, thì cũng nhất định không được hối tiếc với sự chọn lựa đó của mình.</div>
+          </div>
       </div>
     </script>
     <script type="text/ng-template" id="pages/categogies.html">
       <div class="container categogies">
         <h1>Danh mục sản phẩm</h1>
         <div class="row">
-          <div class="col-xs-12 col-sm-12 col-lg-12">
-            <h2>Romantic</h2>
-          </div>
-          </div>
+           <h2>Adventure</h2>
+        </div>
         <div class="row">     
-            <div class="col-xs-6 col-sm-4 col-lg-2">
-              <a>
+            <div class="col-sm-4 col-lg-2">
+              <a class="items" ng-click="show" href="#/categogies/details">
                 <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
                 <h4>The day you went away</h4>
               </a>
             </div>
-            <div class="col-xs-6 col-sm-4 col-lg-2">
-              <a>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
                 <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
                 <h4>The day you went away</h4>
               </a>
             </div>
-            <div class="col-xs-6 col-sm-4 col-lg-2">
-              <a>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
                 <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
                 <h4>The day you went away</h4>
               </a>
             </div>
-            <div class="col-xs-6 col-sm-4 col-lg-2">
-              <a>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
                 <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
                 <h4>The day you went away</h4>
               </a>
             </div>
-            <div class="col-xs-6 col-sm-4 col-lg-2">
-              <a>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
                 <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
                 <h4>The day you went away</h4>
               </a>
             </div>
-            <div class="col-xs-6 col-sm-4 col-lg-2">
-              <a>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+          </div>
+          <div class="row">
+          <ul class="pagination">
+            <li class="disabled"><a href="" aria-label="Previous"><span aria-hidden="true">&laquo</span></a></li>
+            <li class="active"><a href="">1</a></li>
+            <li class="disabled"><a href="">2</a></li>
+            <li class="disabled"><a href="">3</a></li>
+            <li class="disabled"><a href="" aria-label="Next"><span aria-hidden="true">&raquo</span></a></li>
+          </ul>
+          </div>
+
+         
+        <div class="row">
+           <h2>Biographical</h2>
+        </div>
+        <div class="row">     
+            <div class="col-sm-4 col-lg-2">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+          </div>
+          <div class="row">
+          <ul class="pagination">
+            <li class="disabled"><a href="" aria-label="Previous"><span aria-hidden="true">&laquo</span></a></li>
+            <li class="active"><a href="">1</a></li>
+            <li class="disabled"><a href="">2</a></li>
+            <li class="disabled"><a href="">3</a></li>
+            <li class="disabled"><a href="" aria-label="Next"><span aria-hidden="true">&raquo</span></a></li>
+          </ul>
+          </div>
+        <div class="row">
+           <h2>Romantic</h2>
+        </div>
+        <div class="row">     
+            <div class="col-sm-4 col-lg-2">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
+                <h4>The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-2 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
                 <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
                 <h4>The day you went away</h4>
               </a>
@@ -207,45 +427,112 @@
         </div>
       </div>
     </script>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a href="#" class="nav navbar-brand navbar-right"><span class="glyphicon glyphicon-search"></span></a>
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav">
-            <li><a href="#"></a></li>
-            <li><a href="#/">HOME</a></li>
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#/categogies">Categogy <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                      <li><a href="#/categogies/adventire">Adventure</a></li>
-                      <li><a href="#/categogies/biographical">Biographical</a></li>
-                      <li><a href="#/categogies/romantic">Romantic</a></li>
-                  </ul>
-                </li>
-            <li><a href="#/contact">CONTACT</a></li>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="#/signin"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-              </ul>
-          </ul>
-          </div>
-        </div>
-    </nav>
-    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+  
+  <header id="header">
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
-          <div class="navbar-footer">
-                <h1>Bootstrap Tutorial</h1>      
-                <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
-          </div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="">NT Book Store</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#/">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#/categogies" class="dropdown-toggle" data-toggle="dropdown">Categogies<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#/categogies/adventure">Adventure</a></li>
+                            <li><a href="#/categogies/biographical">Biographical</a></li>
+                            <li><a href="#/categogies/romantic">Romantic</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#/order">Order Now</a></li>
+                    <li><a href="#/contact">Contact Us</a></li>              
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li>
+                    <span><input type="text" placehoher="Search"/><a type="button" class="btn"><span class="glyphicon glyphicon-search"></span></a></span>
+                  </li>
+                  <li><a href="#/signup"><span class="glyphicon glyphicon-user"></span></a></li>
+                  <li><a href="#/cart"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
         </div>
     </nav>
+    </header>
+
     <div ng-view class="view"></div>
+
+    <footer>
+        <div class="splitter"></div>
+            <ul>
+                <li>
+                    <div class="icon" data-icon="E"></div>
+                    <div class="text">
+                        <h4>About</h4>
+                        <div>Specialises in English language books, magazines and travel guides. Small in scale, but provides interesting books and a friendly atmosphere. English is spoken.</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon" data-icon="a"></div>
+                    <div class="text">
+                        <h4>Archive</h4>
+                        <div>One of the largest book suppliers in Vietnam, popular for locals as well as expats. In addition to books, shop for stationery, gifts, souvenirs and DVDs. Children are welcome to read comic books in the shops for free.</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon" data-icon="s"></div>
+                    <div class="text">
+                        <h4>Cloud</h4>
+                        <div>If you are looking for books on subjects such as economy, IT, medicine, architecture, technology, etc., or you are looking for a bookstore that contains a large selection of English, French, Chinese, Japanese and Vietnamese books.</div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="bar">
+                <div class="bar-wrap">
+                    <ul class="links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Categogies</a></li>
+                        <li><a href="#">Order Now</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+
+                    <ul class="social">
+                        <li><a href="#" class="fb">
+                            <span data-icon="f" class="icon"></span>
+                            <span class="info">
+                                <span class="follow">Become a fan Facebook</span>
+                                <span class="num">9,999</span>
+                            </span>
+                        </a></li>
+                        
+                       <li><a href="#" class="tw">
+                            <span data-icon="T" class="icon"></span>
+                            <span class="info">
+                                <span class="follow">Follow us Twitter</span>
+                                <span class="num">9,999</span>
+                            </span>
+                        </a></li>
+                       
+                        <li><a href="#" class="youtube">
+                            <span data-icon="U" class="icon"></span>
+                            <span class="info">
+                                <span class="follow">Subscribe Youtube</span>
+                                <span class="num">9,999</span>
+                            </span>
+                        </a></li>
+                    </ul>
+                <div class="clear"></div>
+                <div class="copyright">&copy;  2017 All Rights Reserved</div>
+            </div>
+        </div>
+    </footer>
 
     <script src="js/app.js"></script>
   </body>

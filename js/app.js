@@ -12,11 +12,20 @@ app.config(function($routeProvider) {
     controller  : 'HomeController'
   })
 
-  .when('/categogies', {
+  .when('/categogies',{
     templateUrl : 'pages/categogies.html',
     controller  : 'BlogController'
   })
-
+  .when('/categogies/adventure', {
+    templateUrl : 'pages/categogies.html',
+    controller  : 'BlogController'
+  }).when('/categogies/biographical',{
+    templateUrl : 'pages/categogies.html',
+    controller  : 'BlogController'
+  }).when('/categogies/romantic', {
+    templateUrl : 'pages/categogies.html',
+    controller  : 'BlogController'
+  })
   .when('/contact', {
     templateUrl : 'pages/contact.html',
     controller  : 'AboutController'
