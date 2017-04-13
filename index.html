@@ -10,13 +10,19 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/main.css">
   <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Indie+Flower" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cookie|Satisfy" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cookie|Handlee|Satisfy" rel="stylesheet">
   <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/resetcart.css"> <!-- CSS reset -->
+  <link rel="stylesheet" href="css/stylecart.css"> <!-- Resource style -->
   </head>
   <body>
     <script type="text/ng-template" id="pages/home.html">
@@ -62,8 +68,7 @@
           </div>
           <div class="leftbar">
               <div class="row">
-                <h2>Panel Heading</h2>
-                <div class="panel panel-default">
+                <div class="panel panel-primary">
                   <div class="panel-heading">Categogies</div>
                   <div class="panel-body">
                       <ul>
@@ -76,126 +81,174 @@
               </div>
           </div>
           <div class="rightbar">
-              <div class="row">
-                 <h2>Sách khuyến mãi</h2>
-              </div>
-              <div class="row">     
-                  <div class="col-sm-6 col-lg-4">
-                    <a class="items" ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                      <h4>The day you went away</h4>
+              <div class="row promotion" >
+                 <h2 class="typebook">Sách khuyến mãi</h2>    
+                  <div class="col-sm-6 col-lg-4 items">
+                    <a ng-click="show" href="#/categogies/details">
+                      <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                    <br/>
+                      <a class="fa fa-heart heart" ng-click="like"> {{likes}}</a>
+                      <a href="#0" class="cd-add-to-cart" data-price="19.99"><span class="glyphicon glyphicon-shopping-cart" ></span></a>
+                      <h4 class="titlebook">The day you went away</h4>
                     </a>
                   </div>
                   <div class="col-sm-6 col-lg-4 items">
-                    <a class="items" ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                      <h4>The day you went away</h4>
+                    <a ng-click="show" href="#/categogies/details">
+                      <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                       <br/>
+                      <a class="fa fa-heart heart" ng-click="like"> {{likes}}</a>
+                      <a href="#0" class="cd-add-to-cart" data-price="19.99"><span class="glyphicon glyphicon-shopping-cart" ></span></a>
+                      <h4 class="titlebook">The day you went away</h4>
                     </a>
                   </div>
                   <div class="col-sm-6 col-lg-4 items">
-                    <a class="items" ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                      <h4>The day you went away</h4>
+                    <a ng-click="show" href="#/categogies/details">
+                      <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                       <br/>
+                      <a class="fa fa-heart heart" ng-click="like"> {{likes}}</a>
+                      <a href="#0" class="cd-add-to-cart" data-price="19.99"><span class="glyphicon glyphicon-shopping-cart" ></span></a>
+                      <h4 class="titlebook">The day you went away</h4>
                     </a>
                   </div>
                   <div class="col-sm-6 col-lg-4 items">
-                    <a class="items" ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                      <h4>The day you went away</h4>
+                    <a ng-click="show" href="#/categogies/details">
+                      <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                       <br/>
+                      <a class="fa fa-heart heart" ng-click="like"> {{likes}}</a>
+                      <a href="#0" class="cd-add-to-cart" data-price="19.99"><span class="glyphicon glyphicon-shopping-cart" ></span></a>
+                      <h4 class="titlebook">The day you went away</h4>
                     </a>
                   </div>
                   <div class="col-sm-6 col-lg-4 items">
-                    <a class="items" ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                      <h4>The day you went away</h4>
+                    <a ng-click="show" href="#/categogies/details">
+                      <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                       <br/>
+                      <a class="fa fa-heart heart" ng-click="like"> {{likes}}</a>
+                      <a href="#0" class="cd-add-to-cart" data-price="19.99"><span class="glyphicon glyphicon-shopping-cart" ></span></a>
+                      <h4 class="titlebook">The day you went away</h4>
                     </a>
                   </div>
                   <div class="col-sm-6 col-lg-4 items">
-                    <a class="items" ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                      <h4>The day you went away</h4>
+                    <a ng-click="show" href="#/categogies/details">
+                      <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                       <br/>
+                      <a class="fa fa-heart heart" ng-click="like"> {{likes}}</a>
+                      <a href="#0" class="cd-add-to-cart" data-price="19.99"><span class="glyphicon glyphicon-shopping-cart" ></span></a>
+                      <h4 class="titlebook">The day you went away</h4>
                     </a>
                   </div>
                 </div>
-                <div class="row">
-                 <h2>Sách bán chạy</h2>
-              </div>
-              <div class="row">     
-                  <div class="col-sm-6 col-lg-4">
-                    <a class="items" ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                      <h4>The day you went away</h4>
+                <div class="row hotbook">
+                 <h2 class="typebook">Sách bán chạy</h2>     
+                  <div class="col-sm-6 col-lg-4 items">
+                    <a ng-click="show" href="#/categogies/details">
+                      <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                       <br/>
+                      <a class="fa fa-heart heart" ng-click="like"> {{likes}}</a>
+                      <a href="#0" class="cd-add-to-cart" data-price="19.99"><span class="glyphicon glyphicon-shopping-cart" ></span></a>
+                      <h4 class="titlebook">The day you went away</h4>
                     </a>
                   </div>
                   <div class="col-sm-6 col-lg-4 items">
-                    <a class="items" ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                      <h4>The day you went away</h4>
+                    <a ng-click="show" href="#/categogies/details">
+                      <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                       <br/>
+                      <a class="fa fa-heart heart" ng-click="like"> {{likes}}</a>
+                      <a href="#0" class="cd-add-to-cart" data-price="19.99"><span class="glyphicon glyphicon-shopping-cart" ></span></a>
+                      <h4 class="titlebook">The day you went away</h4>
                     </a>
                   </div>
                   <div class="col-sm-6 col-lg-4 items">
-                    <a class="items" ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                      <h4>The day you went away</h4>
+                    <a ng-click="show" href="#/categogies/details">
+                      <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                       <br/>
+                      <a class="fa fa-heart heart" ng-click="like"> {{likes}}</a>
+                      <a href="#0" class="cd-add-to-cart" data-price="19.99"><span class="glyphicon glyphicon-shopping-cart" ></span></a>
+                      <h4 class="titlebook">The day you went away</h4>
                     </a>
                   </div>
                   <div class="col-sm-6 col-lg-4 items">
-                    <a class="items" ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                      <h4>The day you went away</h4>
+                    <a ng-click="show" href="#/categogies/details">
+                      <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                       <br/>
+                      <a class="fa fa-heart heart" ng-click="like"> {{likes}}</a>
+                      <a href="#0" class="cd-add-to-cart" data-price="19.99"><span class="glyphicon glyphicon-shopping-cart" ></span></a>
+                      <h4 class="titlebook">The day you went away</h4>
                     </a>
                   </div>
                   <div class="col-sm-6 col-lg-4 items">
-                    <a class="items" ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                      <h4>The day you went away</h4>
+                    <a ng-click="show" href="#/categogies/details">
+                      <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                       <br/>
+                      <a class="fa fa-heart heart" ng-click="like"> {{likes}}</a>
+                      <a href="#0" class="cd-add-to-cart" data-price="19.99"><span class="glyphicon glyphicon-shopping-cart" ></span></a>
+                      <h4 class="titlebook">The day you went away</h4>
                     </a>
                   </div>
                   <div class="col-sm-6 col-lg-4 items">
-                    <a class="items" ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                      <h4>The day you went away</h4>
+                    <a ng-click="show" href="#/categogies/details">
+                      <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                       <br/>
+                      <a class="fa fa-heart heart" ng-click="like"> {{likes}}</a>
+                      <a href="#0" class="cd-add-to-cart" data-price="19.99"><span class="glyphicon glyphicon-shopping-cart" ></span></a>
+                      <h4 class="titlebook">The day you went away</h4>
                     </a>
                   </div>
                 </div>
-                <div class="row">
-                 <h2>Sách mới</h2>
-              </div>
-              <div class="row">     
-                  <div class="col-sm-6 col-lg-4">
-                    <a class="items" ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                      <h4>The day you went away</h4>
+                <div class="row newbook">
+                 <h2 class="typebook">Sách mới</h2>  
+                  <div class="col-sm-6 col-lg-4 items">
+                    <a ng-click="show" href="#/categogies/details">
+                      <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                       <br/>
+                      <a class="fa fa-heart heart" ng-click="like"> {{likes}}</a>
+                      <a href="#0" class="cd-add-to-cart" data-price="19.99"><span class="glyphicon glyphicon-shopping-cart" ></span></a>
+                      <h4 class="titlebook">The day you went away</h4>
                     </a>
                   </div>
                   <div class="col-sm-6 col-lg-4 items">
-                    <a class="items" ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                      <h4>The day you went away</h4>
+                    <a ng-click="show" href="#/categogies/details">
+                      <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                       <br/>
+                      <a class="fa fa-heart heart" ng-click="like"> {{likes}}</a>
+                      <a href="#0" class="cd-add-to-cart" data-price="19.99"><span class="glyphicon glyphicon-shopping-cart" ></span></a>
+                      <h4 class="titlebook">The day you went away</h4>
                     </a>
                   </div>
                   <div class="col-sm-6 col-lg-4 items">
-                    <a class="items" ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                      <h4>The day you went away</h4>
+                    <a ng-click="show" href="#/categogies/details">
+                      <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                       <br/>
+                      <a class="fa fa-heart heart" ng-click="like"> {{likes}}</a>
+                      <a href="#0" class="cd-add-to-cart" data-price="19.99"><span class="glyphicon glyphicon-shopping-cart" ></span></a>
+                      <h4 class="titlebook">The day you went away</h4>
                     </a>
                   </div>
                   <div class="col-sm-6 col-lg-4 items">
-                    <a class="items" ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                      <h4>The day you went away</h4>
+                    <a ng-click="show" href="#/categogies/details">
+                      <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                       <br/>
+                      <a class="fa fa-heart heart" ng-click="like"> {{likes}}</a>
+                      <a href="#0" class="cd-add-to-cart" data-price="19.99"><span class="glyphicon glyphicon-shopping-cart" ></span></a>
+                      <h4 class="titlebook">The day you went away</h4>
                     </a>
                   </div>
                   <div class="col-sm-6 col-lg-4 items">
-                    <a class="items" ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                      <h4>The day you went away</h4>
+                    <a ng-click="show" href="#/categogies/details">
+                      <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                       <br/>
+                      <a class="fa fa-heart heart" ng-click="like"> {{likes}}</a>
+                      <a href="#0" class="cd-add-to-cart" data-price="19.99"><span class="glyphicon glyphicon-shopping-cart" ></span></a>
+                      <h4 class="titlebook">The day you went away</h4>
                     </a>
                   </div>
                   <div class="col-sm-6 col-lg-4 items">
-                    <a class="items" ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                      <h4>The day you went away</h4>
+                    <a ng-click="show" href="#/categogies/details">
+                      <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                       <br/>
+                      <a class="fa fa-heart heart" ng-click="like"> {{likes}}</a>
+                      <a href="#0" class="cd-add-to-cart" data-price="19.99"><span class="glyphicon glyphicon-shopping-cart" ></span></a>
+                      <h4 class="titlebook">The day you went away</h4>
                     </a>
                   </div>
                   <div class="intro">Quyển sách, sẽ như những lời “hướng dẫn giữ gìn” tình yêu cho bạn, là những gì tôi đã đi trước, trải nghiệm và ghi nhận. Bạn có thể lấy nó làm hành trang vững chắc trên con đường tình yêu của mình, cũng có thể đọc để cho biết thôi, và vẫn yêu theo cách riêng mà mình muốn. Nhưng, có thể hứa với tôi một điều này không? Rằng dù bạn có chọn thế nào, thì cũng nhất định không được hối tiếc với sự chọn lựa đó của mình.</div>
@@ -205,8 +258,8 @@
     </script>
     <script type="text/ng-template" id="pages/categogies.html">
       <div class="container categogies">
-        <h1>Danh mục sản phẩm</h1>
-        <div>
+        <h2 class="list">Danh mục sản phẩm</h2>
+        <div class="row">
           <ul class="categogiesTop">
             <li><a href="#/categogies/adventure">Adventure</a></li>
             <li><a href="#/categogies/biographical">Biographical</a></li>
@@ -214,125 +267,119 @@
           </ul>
         </div>
         <div class="row">
-           <h2>Adventure</h2>
-        </div>
-        <div class="row">     
-            <div class="col-sm-4 col-lg-2">
+           <h2 class="typebook">Adventure</h2>    
+            <div class="col-sm-4 col-lg-3 items">
               <a class="items" ng-click="show" href="#/categogies/details">
-                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                <h4>The day you went away</h4>
+                <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                <h4 class="titlebook">The day you went away</h4>
               </a>
             </div>
-            <div class="col-sm-4 col-lg-2 items">
+            <div class="col-sm-4 col-lg-3 items">
               <a class="items" ng-click="show" href="#/categogies/details">
-                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                <h4>The day you went away</h4>
+                <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                <h4 class="titlebook">The day you went away</h4>
               </a>
             </div>
-            <div class="col-sm-4 col-lg-2 items">
+            <div class="col-sm-4 col-lg-3 items">
               <a class="items" ng-click="show" href="#/categogies/details">
-                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                <h4>The day you went away</h4>
+                <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                <h4 class="titlebook">The day you went away</h4>
               </a>
             </div>
-            <div class="col-sm-4 col-lg-2 items">
+            <div class="col-sm-4 col-lg-3 items">
               <a class="items" ng-click="show" href="#/categogies/details">
-                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                <h4>The day you went away</h4>
+                <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                <h4 class="titlebook">The day you went away</h4>
               </a>
             </div>
-            <div class="col-sm-4 col-lg-2 items">
+            <div class="col-sm-4 col-lg-3 items">
               <a class="items" ng-click="show" href="#/categogies/details">
-                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                <h4>The day you went away</h4>
+                <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                <h4 class="titlebook">The day you went away</h4>
               </a>
             </div>
-            <div class="col-sm-4 col-lg-2 items">
+            <div class="col-sm-4 col-lg-3 items">
               <a class="items" ng-click="show" href="#/categogies/details">
-                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                <h4>The day you went away</h4>
+                <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                <h4 class="titlebook">The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-3 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                <h4 class="titlebook">The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-3 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                <h4 class="titlebook">The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-3 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                <h4 class="titlebook">The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-3 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                <h4 class="titlebook">The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-3 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                <h4 class="titlebook">The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-3 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                <h4 class="titlebook">The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-3 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                <h4 class="titlebook">The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-3 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                <h4 class="titlebook">The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-3 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                <h4 class="titlebook">The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-3 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                <h4 class="titlebook">The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-3 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                <h4 class="titlebook">The day you went away</h4>
+              </a>
+            </div>
+            <div class="col-sm-4 col-lg-3 items">
+              <a class="items" ng-click="show" href="#/categogies/details">
+                <img class="img-responsive" ng-src="http://www.designmom.com/wp-content/uploads/2012/09/untitled-51311.jpg" alt="Book">
+                <h4 class="titlebook">The day you went away</h4>
               </a>
             </div>
           </div>
         <div>
 
-        <div class="row">     
-            <div class="col-sm-4 col-lg-2">
-              <a class="items" ng-click="show" href="#/categogies/details">
-                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                <h4>The day you went away</h4>
-              </a>
-            </div>
-            <div class="col-sm-4 col-lg-2 items">
-              <a class="items" ng-click="show" href="#/categogies/details">
-                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                <h4>The day you went away</h4>
-              </a>
-            </div>
-            <div class="col-sm-4 col-lg-2 items">
-              <a class="items" ng-click="show" href="#/categogies/details">
-                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                <h4>The day you went away</h4>
-              </a>
-            </div>
-            <div class="col-sm-4 col-lg-2 items">
-              <a class="items" ng-click="show" href="#/categogies/details">
-                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                <h4>The day you went away</h4>
-              </a>
-            </div>
-            <div class="col-sm-4 col-lg-2 items">
-              <a class="items" ng-click="show" href="#/categogies/details">
-                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                <h4>The day you went away</h4>
-              </a>
-            </div>
-            <div class="col-sm-4 col-lg-2 items">
-              <a class="items" ng-click="show" href="#/categogies/details">
-                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                <h4>The day you went away</h4>
-              </a>
-            </div>
-          </div>
-
-        <div class="row">     
-            <div class="col-sm-4 col-lg-2">
-              <a class="items" ng-click="show" href="#/categogies/details">
-                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                <h4>The day you went away</h4>
-              </a>
-            </div>
-            <div class="col-sm-4 col-lg-2 items">
-              <a class="items" ng-click="show" href="#/categogies/details">
-                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                <h4>The day you went away</h4>
-              </a>
-            </div>
-            <div class="col-sm-4 col-lg-2 items">
-              <a class="items" ng-click="show" href="#/categogies/details">
-                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                <h4>The day you went away</h4>
-              </a>
-            </div>
-            <div class="col-sm-4 col-lg-2 items">
-              <a class="items" ng-click="show" href="#/categogies/details">
-                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                <h4>The day you went away</h4>
-              </a>
-            </div>
-            <div class="col-sm-4 col-lg-2 items">
-              <a class="items" ng-click="show" href="#/categogies/details">
-                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                <h4>The day you went away</h4>
-              </a>
-            </div>
-            <div class="col-sm-4 col-lg-2 items">
-              <a class="items" ng-click="show" href="#/categogies/details">
-                <img class="img-responsive" ng-src="http://litstack.com/wp-content/uploads/2013/06/book.jpg" alt="Book">
-                <h4>The day you went away</h4>
-              </a>
-            </div>
-          </div>
+        
           <div class="row">
           <ul class="pagination">
             <li class="disabled"><a href="" aria-label="Previous"><span aria-hidden="true">&laquo</span></a></li>
@@ -346,14 +393,16 @@
     </script>
     <script type="text/ng-template" id="pages/contact.html">
         <div class="container">
-          <h1>Liên hệ</h1>
+          <h2 class="contact">Liên hệ</h2>
           <form class="ttin">
             <p>
-              <span class="glyphicon glyphicon-home"> 21 Võ Thị Sáu, P3, Q3 </span><br/>
+              <span class="glyphicon glyphicon-home"> 21 Võ Thị Sáu, P.3, Q.3 </span><br/>
               <span class="glyphicon glyphicon-phone-alt"> 0931 334 424</span><br/>
-              <span class="glyphicon glyphicon-hourglass"> Monday - Saturday 9am-5pm</span>
+              <span class="glyphicon glyphicon-hourglass"> Monday - Saturday: 9am - 5pm</span>
             </p>
           </form>
+
+          <div id="googleMap" style="height: 300px;">Click to direct</div>
       </div>
     </script>
     <script type="text/ng-template" id="pages/signin.html">
@@ -399,7 +448,7 @@
     </script>
     <script type="text/ng-template" id="pages/categogies/details.html">
       <div class="container details">
-      <h1>Chi tiết sản phẩm</h1>
+      <h2>Chi tiết sản phẩm</h2>
         <div class="row">
           <div class="panel panel-primary">
             <div class="panel-heading">Socrates In Love</div>
@@ -500,7 +549,7 @@
                     <span><input type="text" placehoher="Search"/><a type="button" class="btn"><span class="glyphicon glyphicon-search"></span></a></span>
                   </li>
                   <li><a href="#/signup"><span class="glyphicon glyphicon-user"></span></a></li>
-                  <li><a href="#/cart"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                  <li><a href="#/cart"><span class="glyphicon glyphicon-shopping-cart" ></span></a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -510,7 +559,39 @@
     <div ng-view class="view">
         
     </div>
+    <div class="cd-cart-container empty">
+      <a href="#0" class="cd-cart-trigger">
+        Cart
+        <ul class="count"> <!-- cart items count -->
+          <li>0</li>
+          <li>0</li>
+        </ul> <!-- .count -->
+      </a>
 
+      <div class="cd-cart">
+        <div class="wrapper">
+          <header>
+            <h2>Cart</h2>
+            <span class="undo">Item removed. <a href="#0">Undo</a></span>
+          </header>
+          
+          <div class="body">
+            <ul>
+              <!-- products added to the cart will be inserted here using JavaScript -->
+            </ul>
+          </div>
+
+          <footer>
+            <a href="#0" class="checkout btn"><em>Checkout - $<span>0</span></em></a>
+          </footer>
+        </div>
+      </div> <!-- .cd-cart -->
+    </div> <!-- cd-cart-container -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+      if( !window.jQuery ) document.write('<script src="js/jquery-3.0.0.min.js"><\/script>');
+    </script>
+    <script src="js/maincart.js"></script> <!-- Resource jQuery -->
     <footer>
         <div class="splitter"></div>
             <ul>
@@ -540,10 +621,10 @@
             <div class="bar">
                 <div class="bar-wrap">
                     <ul class="links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Categogies</a></li>
+                        <li><a href="#/">Home</a></li>
+                        <li><a href="#/categogies">Categogies</a></li>
                         <li><a href="#">Order Now</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#/contact">Contact Us</a></li>
                     </ul>
 
                     <ul class="social">
@@ -578,5 +659,6 @@
     </footer>
 
     <script src="js/app.js"></script>
+    <script src="js/map.js"></script>
   </body>
 </html>

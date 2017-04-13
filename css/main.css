@@ -1,6 +1,6 @@
 .view{
         margin-top: 50px;
-        min-height: 650px;
+        min-height: 734px;
 }
 a:hover{
 	text-decoration: none;
@@ -12,9 +12,34 @@ div.intro{
 a.items:hover + div{
 	display: block;
 }
-.container .row div a.items:hover{
-	background-color: red;
-
+/*body > div.view.ng-scope > div > div.rightbar > div div a img{
+	max-height: 250px;
+	margin: 0 auto;
+}*/
+div.items{
+	text-align: center;
+}
+.list, .contact{
+	margin: 0.7em 0;
+	font-size: 45px;
+	font-family: 'Dancing Script', cursive;
+}
+.titlebook{
+	text-align: center;
+	font-size: 25px;
+	color: #26347A;
+	padding: 10px 0;
+	font-family: 'Satisfy', cursive;
+}
+.typebook{
+	font-family: 'Dancing Script', cursive;
+	color: #722B2B;
+	text-align: center;
+	font-size: 45px;
+	padding: 10px;
+}
+.hotbook, .newbook{
+	margin-top: 30px;
 }
 .slide{
 	width: 100%;
@@ -22,12 +47,13 @@ a.items:hover + div{
 	overflow: hidden;
 	margin-bottom: 20px;
 }
-h1 {
+div.categogies h1 {
   margin-bottom: 40px;
   font-weight: 400;
   font-family: 'Indie Flower', cursive;
   font-size: 50px;
   color: #5C1515;
+  padding: 1em 0 .8em;
 }
 h2 {
 	font-family: 'Dancing Script', cursive;
@@ -39,6 +65,7 @@ h2 {
 }
 .pagination{
 	margin: 10px auto;
+	float: right;
 }
 .categogies a{
 	text-decoration: none;
@@ -58,16 +85,25 @@ h2 {
 	.rightbar{
 		width: 100%;
 	}
+	body > div.view.ng-scope > div > div.rightbar > div div a img{
+		margin: 0 auto;
+	}
+	.slide{
+		height: 100%;
+	}
+
 }
-.panel-heading, .panel-footer{
+.panel-heading{
 	text-align: center;
-	font-size: 20px;
+	font-size: 30px;
 	color: #080584;
+	font-family: 'Cookie', cursive;
 }
 .panel-body ul li {
 	list-style-type: none;
-	text-align: center;
+	padding-left: 1em;
 	font-size: 18px;
+	font-family: 'Handlee', cursive;
 }
 .categogiesTop li{
 	list-style-type: none;
@@ -77,6 +113,9 @@ h2 {
 }
 .categogiesTop li a{
 	color: #fff;
+}
+.categogiesTop{
+	margin: 1em;
 }
 /*comment*/
 .post-footer .comments-list {
@@ -126,5 +165,10 @@ body > div > div > div > div > div.panel-footer > div > ul > li > div > p{
 .post-footer .comments-list .comment > .comments-list {
   margin-left: 50px;
 }
-/*multi carousel*/
-/*end multi carousel*/
+.ttin{
+	margin-bottom: 30px;
+	padding: 5px 0;
+}
+.googleMap{
+	height: 250px;
+}
