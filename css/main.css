@@ -72,7 +72,7 @@ h2 {
 }
 .leftbar{
 	float: left;
-	width: 22.5%;
+	width: 20%;
 }
 .rightbar{
 	float: right;
@@ -171,4 +171,19 @@ body > div > div > div > div > div.panel-footer > div > ul > li > div > p{
 }
 .googleMap{
 	height: 250px;
+}
+.addCart, .heart {
+	color: #ffffff;
+  	background: #2c97de;
+  	padding: 10px;
+}
+.addCart:hover , .heart::hover{
+  	background: #42a2e1;
+}
+.ProductsDetails{
+	font-size: 35px;
+}
+.titleDetails, .contentProducts{
+	font-size: 25px;
+	font-weight: 300;
 }
