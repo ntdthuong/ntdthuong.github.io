@@ -15,33 +15,37 @@ app.config(function($routeProvider) {
 
   .when('/categogies',{
     templateUrl : 'pages/categogies.html',
-    controller  : 'BlogController'
+    controller  : 'CategogiesController'
   })
   .when('/categogies/adventure', {
     templateUrl : 'pages/categogies.html',
-    controller  : 'BlogController'
+    controller  : 'CategogiesController'
   }).when('/categogies/biographical',{
     templateUrl : 'pages/categogies.html',
-    controller  : 'BlogController'
+    controller  : 'CategogiesController'
   }).when('/categogies/romantic', {
     templateUrl : 'pages/categogies.html',
-    controller  : 'BlogController'
+    controller  : 'CategogiesController'
   })
   .when('/contact', {
     templateUrl : 'pages/contact.html',
-    controller  : 'AboutController'
+    controller  : 'ContactController'
   })
   .when('/categogies/details', {
     templateUrl : 'pages/categogies/details.html',
-    controller  : 'AboutController'
+    controller  : 'CategogiesController'
   })
   .when('/signin', {
     templateUrl : 'pages/signin.html',
-    controller  : 'AboutController'
+    controller  : 'SignInController'
   })
   .when('/signup', {
     templateUrl : 'pages/signup.html',
     controller  : 'AboutController'
+  })
+  .when('/cart', {
+    templateUrl : 'pages/cart.html',
+    controller  : 'CartController'
   })
   .otherwise({redirectTo: '/'});
 });
@@ -49,8 +53,8 @@ app.controller('HomeController', function($scope) {
   $scope.message = 'Hello from HomeController';
 });
 
-app.controller('BlogController', function($scope) {
-  $scope.message = 'Hello from BlogController';
+app.controller('CategogiesController', function($scope) {
+  $scope.message = 'Hello from CategogiesController';
 });
 
 app.controller('AboutController', function($scope) {

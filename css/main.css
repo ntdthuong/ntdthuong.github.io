@@ -26,10 +26,11 @@ div.items{
 }
 .titlebook{
 	text-align: center;
-	font-size: 25px;
+	font-size: 23px;
 	color: #26347A;
 	padding: 10px 0;
 	font-family: 'Satisfy', cursive;
+	height: 141px;
 }
 .typebook{
 	font-family: 'Dancing Script', cursive;
@@ -37,6 +38,7 @@ div.items{
 	text-align: center;
 	font-size: 45px;
 	padding: 10px;
+	margin-left: 0;
 }
 .hotbook, .newbook{
 	margin-top: 30px;
@@ -46,6 +48,13 @@ div.items{
 	height: 300px;
 	overflow: hidden;
 	margin-bottom: 20px;
+}
+/*categogies*/
+.items{
+	
+}
+.imgBook img{
+		margin: auto;
 }
 div.categogies h1 {
   margin-bottom: 40px;
@@ -59,9 +68,18 @@ h2 {
 	font-family: 'Dancing Script', cursive;
 	margin-left: 1em;
 }
-.sign{
-	width: 400px;
-	margin: auto;
+.addCart, .heart {
+	color: #ffffff;
+  	background: #2c97de;
+  	padding: 10px;
+	 border-radius: 0px
+}
+.addCart:hover , .heart:hover{
+  	color: #23527c;
+}
+.information{
+	width: 100%;
+	margin-top: 10px;
 }
 .pagination{
 	margin: 10px auto;
@@ -70,6 +88,7 @@ h2 {
 .categogies a{
 	text-decoration: none;
 }
+/*end categogies*/
 .leftbar{
 	float: left;
 	width: 20%;
@@ -91,7 +110,10 @@ h2 {
 	.slide{
 		height: 100%;
 	}
-
+	.imgBook{
+	height: 100%;
+	}
+	
 }
 .panel-heading{
 	text-align: center;
@@ -172,14 +194,7 @@ body > div > div > div > div > div.panel-footer > div > ul > li > div > p{
 .googleMap{
 	height: 250px;
 }
-.addCart, .heart {
-	color: #ffffff;
-  	background: #2c97de;
-  	padding: 10px;
-}
-.addCart:hover , .heart::hover{
-  	background: #42a2e1;
-}
+
 .ProductsDetails{
 	font-size: 35px;
 }
@@ -187,3 +202,4 @@ body > div > div > div > div > div.panel-footer > div > ul > li > div > p{
 	font-size: 25px;
 	font-weight: 300;
 }
+
