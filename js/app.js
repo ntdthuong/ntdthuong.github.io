@@ -47,6 +47,14 @@ app.config(function($routeProvider) {
     templateUrl : 'pages/cart.html',
     controller  : 'CartController'
   })
+  .when('/admin/newpost', {
+    templateUrl : 'pages/admin/newpost.html',
+    controller  : 'AdminController'
+  })
+  .when('/admin/listpost', {
+    templateUrl : 'pages/admin/listpost.html',
+    controller  : 'AdminController'
+  })
   .otherwise({redirectTo: '/'});
 });
 app.controller('HomeController', function($scope) {
@@ -57,6 +65,18 @@ app.controller('CategogiesController', function($scope) {
   $scope.message = 'Hello from CategogiesController';
 });
 
-app.controller('AboutController', function($scope) {
-  $scope.message = 'Hello from AboutController';
+app.controller('ContactController', function($scope) {
+  $scope.message = 'Hello from ContactController';
+});
+
+app.controller('SignInController', function($scope) {
+  $scope.message = 'Hello from SignInController';
+});
+
+app.controller('AdminController', function($scope) {
+  $scope.message = 'Hello from AdminController';
+});
+
+app.controller('CartController', function($scope) {
+  $scope.message = 'Hello from CartController';
 });

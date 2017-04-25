@@ -1,6 +1,5 @@
 .view{
-        margin-top: 50px;
-        min-height: 734px;
+        margin-top: 56px;
 }
 a:hover{
 	text-decoration: none;
@@ -39,6 +38,7 @@ div.items{
 	font-size: 45px;
 	padding: 10px;
 	margin-left: 0;
+	border-bottom: double 2px #000;
 }
 .hotbook, .newbook{
 	margin-top: 30px;
@@ -123,7 +123,6 @@ h2 {
 }
 .panel-body ul li {
 	list-style-type: none;
-	padding-left: 1em;
 	font-size: 18px;
 	font-family: 'Handlee', cursive;
 }
@@ -202,4 +201,130 @@ body > div > div > div > div > div.panel-footer > div > ul > li > div > p{
 	font-size: 25px;
 	font-weight: 300;
 }
+.plugin{
+	height: 350px;
+}
+/*signin or signup*/
+.sign{
+	margin-top: 20px;
+}
+.divOR{
+	text-align: center;
+}
+.btnOR{
+	border-radius: 50%;
+}
+/*end signin or signup*/
+/*admin*/
+.addPost{
+	color: #080584;
+	font-size: 25px;
+	width: 100%;
+	text-align: center;
+}
+.post{
+	color: #337ab7;
+	font-weight: 200;
+	font-size: 18px;
+	margin: 5px auto;
+}
+.post input, .descript{
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom-color: #080584;
+	width: 100%;
+}
+.descript{
+	border-bottom-width: 2px;
+}
+.btnPost{
+	float: right;
+}
+.post-preview{
+	height: 62px;
+	overflow: hidden;
+	font-size: 15px;
+}
+.floatright{
+	float: right;
+}
+.listpost{
+	font-size: 20px;
+	font-weight: 300;
+}
+/*end admin*/
+/*footer*/
+footer{
+	margin-top: 96px;
+}
+.social{
+	text-align: center;
+	font-size: 30px;
+	color: #fff;
+}
+.btn-social{
+	padding-left: 0;
+	margin-bottom: 5px;
+	margin-top:  5px;
+}
+.btn-social li{
+	list-style-type: none;
+	display: inline;
+	margin: auto 5px;
+}
+.btn-social li a{
+	color: #fff;
+}
+.copyright{
+	text-align: center;
+	font-size: 20px;
+	color: #000;
+}
+/*end footer*/
+/*cart*/
+.panel-footer{
+  height: 50px;
+}
+.footercart{
+  display: inline-block;
+}
+.titleCart{
+  font-size: 17px;
+  font-weight: bold;
+  margin: 0;
+}
+.imgPreview{
+  width: 100px;
+  margin: auto;
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+.titleBook{
+  font-size: 17px;
+}
+.product{
+  padding: 5px ;
+  margin-top: 30px;
+  border-top: solid 1px #000;
+  border-bottom: solid 1px #000;
+}
+.product div input{
+  max-width: 40px;
+}
+/*end cart*/
 
+@media screen and (max-width: 768px) {
+	.navbar-right li a input{
+    	display: none;
+    }
+}
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    .navbar-right li a input{
+    	display: none;
+    }
+}
