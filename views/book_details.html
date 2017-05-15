@@ -1,0 +1,68 @@
+<a href="#/categogy">Trở về</a>
+<div class="container details " ng-init="getBook()">
+    <h2 class="ProductsDetails ">Chi tiết sản phẩm</h2>
+    <div class="panel panel-primary ">
+        <div class="panel-heading ">{{book.title}}</div>
+        <div class="panel-body ">
+            <div class="imgDetails ">
+                <div class="row ">
+                    <div class="col-xs-6 col-sm-4  ">
+                        <img class="img-responsive imgDetails " ng-src=" {{book.images.main}} " />
+                        <ul class="star">
+                            <li><a><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                            <li><a><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                            <li><a><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                            <li><a><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                            <li><a><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-6  col-sm-8">
+                        <div class="row detail" ng-init="search()">
+                            <h4 class="titleDetails ">Thông tin chi tiết</h4>
+                            <p><b>Categogies:</b> <a href="#/category/{{book.genre._id}}">{{book.genre.name}}</a></p>
+                            <p><b>Author:</b> <a href="#/search/{{book.author}}">{{book.author}}</a></p>
+                            <p><b>Published:</b> {{book.publisher}}</p>
+                            <p><b>Pages:</b> {{book.pages}}</p>
+                            <p><b>Price:</b> 10$</p>
+                        </div>
+                    </div>
+                    <div class="contentBook ">
+                        <h4 class="contentProducts ">Nội dung</h4>
+                        <p>{{book.fullDescription}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class=" reviews" ng-repeat="comment in book.comments|orderBy: 'createdOn' :true">
+        <div class="media">
+            <div class="col-sm-1">
+                <div class="avatar">
+                    <a href="#">
+                        <img class="img-responsive" ng-src="{{comment.userAvatarUrl}}" alt="...">
+                    </a>
+                </div>
+
+
+
+            </div>
+            <div class="col-sm-11 text-left">
+                <h4 class="media-heading">{{comment.userName}}</h4>
+                <span uib-rating ng-model="comment.rate" max="max" read-only="true"></span>
+                <span> {{comment.date|date:'dd/ MM/ yyyy h:mma'}}</span>
+                <p>{{comment.commentBody}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="cmt ">
+        <label for="">Rate</label>
+        <span uib-rating ng-model="comment.rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)"></span>
+        <div class="form-group">
+            <label for="">Comment:</label>
+            <textarea class="form-control" rows="3" ng-model="comment.commentBody"></textarea>
+            <button class="btn btn-primary" type="button" ng-click="comment.commentBody.length>0&&comment.rate>0?addComment(book):''">Submit</button>
+        </div>
+    </div>
+</div>

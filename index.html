@@ -1,679 +1,134 @@
 <!doctype html>
-<html ng-app="myApp">
-  <head>
+<html>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
-  <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/main.css">
-  <link href='css/angular-carousel.css' rel='stylesheet' type='text/css'>
-  <link href='css/demo.css' rel='stylesheet' type='text/css'>
-  </head>
-  <body>
-    <script type="text/ng-template" id="pages/home.html">
-        <div class="container">
-          <div class="row">
-          <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#myCarousel" data-slide-to="1"></li>
-              <li data-target="#myCarousel" data-slide-to="2"></li>
-              <li data-target="#myCarousel" data-slide-to="3"></li>
-            </ol>
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
-              <div class="item active">
-                <img ng-src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/23b7eb34266807.56cabae59a617.jpg" alt="Book">
-              </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+    <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://www.tattooshunt.com/images/28/leo-zodiac-sign-tattoo-design.jpg">
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
-              <div class="item">
-                <img ng-src="https://thenextweb.com/wp-content/blogs.dir/1/files/2013/03/magazine_rack.jpg" alt="Book">
-              </div>
-
-              <div class="item">
-                <img ng-src="https://thenextweb.com/wp-content/blogs.dir/1/files/2013/03/magazine_rack.jpg" alt="Book">
-              </div>
-
-              <div class="item">
-                <img ng-src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/23b7eb34266807.56cabae59a617.jpg" alt="Book">
-              </div>
-            </div>
-
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-          </div>
-          <div class="leftbar">
-              <div class="row">
-                <div class="panel panel-primary">
-                  <div class="panel-heading">Categogies</div>
-                  <div class="panel-body">
-                      <ul>
-                        <li><a href="#/categogies/adventure">Adventure</a></li>
-                        <li><a href="#/categogies/biographical">Biographical</a></li>
-                        <li><a href="#/categogies/romantic">Romantic</a></li>
-                      </ul>
-                  </div>
-                </div>
-              </div>
-          </div>
-          <div class="rightbar">
-              <div class="row promotion" >
-                 <h2 class="typebook">Sách khuyến mãi</h2>    
-                  <div class="col-sm-6 col-lg-4 items">
-                    <div class="imgBook">
-                    <a ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="https://vcdn.tikicdn.com/cache/w300/media/catalog/product/a/b/abab1_1_1_2.jpg" alt="Book">
-                    </a>
-                    </div>  
-                    <div class="information">
-                      <button href="#" class="btn heart"><span class="fa fa-heart"></span></button>
-                      <button href="#" class="btn addCart"><span class="glyphicon glyphicon-shopping-cart" ></span></button>
-                    <a ng-click="show" href="#/categogies/details"> 
-                      <h4 class="titlebook">The day you went away</h4>
-                    </a>
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-lg-4 items">
-                    <div class="imgBook">
-                    <a ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="https://vcdn.tikicdn.com/cache/w300/media/catalog/product/a/b/abab1_1_1_2.jpg" alt="Book">
-                    </a>
-                    </div>  
-                    <div class="information">
-                      <button href="#" class="btn heart"><span class="fa fa-heart"></span></button>
-                      <button href="#" class="btn addCart"><span class="glyphicon glyphicon-shopping-cart" ></span></button>
-                    <a ng-click="show" href="#/categogies/details"> 
-                      <h4 class="titlebook">The day you went away</h4>
-                    </a>
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-lg-4 items">
-                    <div class="imgBook">
-                    <a ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="https://vcdn.tikicdn.com/cache/w300/media/catalog/product/a/b/abab1_1_1_2.jpg" alt="Book">
-                    </a>
-                    </div>  
-                    <div class="information">
-                      <button href="#" class="btn heart"><span class="fa fa-heart"></span></button>
-                      <button href="#" class="btn addCart"><span class="glyphicon glyphicon-shopping-cart" ></span></button>
-                    <a ng-click="show" href="#/categogies/details"> 
-                      <h4 class="titlebook">The day you went away</h4>
-                    </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row hotbook">
-                 <h2 class="typebook">Sách bán chạy</h2>     
-                  <div class="col-sm-6 col-lg-4 items">
-                    <div class="imgBook">
-                    <a ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="https://vcdn.tikicdn.com/cache/w300/media/catalog/product/a/b/abab1_1_1_2.jpg" alt="Book">
-                    </a>
-                    </div>  
-                    <div class="information">
-                      <button href="#" class="btn heart"><span class="fa fa-heart"></span></button>
-                      <button href="#" class="btn addCart"><span class="glyphicon glyphicon-shopping-cart" ></span></button>
-                    <a ng-click="show" href="#/categogies/details"> 
-                      <h4 class="titlebook">The day you went away</h4>
-                    </a>
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-lg-4 items">
-                    <div class="imgBook">
-                    <a ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="https://vcdn.tikicdn.com/cache/w300/media/catalog/product/a/b/abab1_1_1_2.jpg" alt="Book">
-                    </a>
-                    </div>  
-                    <div class="information">
-                      <button href="#" class="btn heart"><span class="fa fa-heart"></span></button>
-                      <button href="#" class="btn addCart"><span class="glyphicon glyphicon-shopping-cart" ></span></button>
-                    <a ng-click="show" href="#/categogies/details"> 
-                      <h4 class="titlebook">The day you went away</h4>
-                    </a>
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-lg-4 items">
-                    <div class="imgBook">
-                    <a ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="https://vcdn.tikicdn.com/cache/w300/media/catalog/product/a/b/abab1_1_1_2.jpg" alt="Book">
-                    </a>
-                    </div>  
-                    <div class="information">
-                      <button href="#" class="btn heart"><span class="fa fa-heart"></span></button>
-                      <button href="#" class="btn addCart"><span class="glyphicon glyphicon-shopping-cart" ></span></button>
-                    <a ng-click="show" href="#/categogies/details"> 
-                      <h4 class="titlebook">The day you went away</h4>
-                    </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row newbook">
-                 <h2 class="typebook">Sách mới</h2>  
-                  <div class="col-sm-6 col-lg-4 items">
-                    <div class="imgBook">
-                    <a ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="https://vcdn.tikicdn.com/cache/w300/media/catalog/product/a/b/abab1_1_1_2.jpg" alt="Book">
-                    </a>
-                    </div>  
-                    <div class="information">
-                      <button href="#" class="btn heart"><span class="fa fa-heart"></span></button>
-                      <button href="#" class="btn addCart"><span class="glyphicon glyphicon-shopping-cart" ></span></button>
-                    <a ng-click="show" href="#/categogies/details"> 
-                      <h4 class="titlebook">The day you went away</h4>
-                    </a>
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-lg-4 items">
-                    <div class="imgBook">
-                    <a ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="https://vcdn.tikicdn.com/cache/w300/media/catalog/product/a/b/abab1_1_1_2.jpg" alt="Book">
-                    </a>
-                    </div>  
-                    <div class="information">
-                      <button href="#" class="btn heart"><span class="fa fa-heart"></span></button>
-                      <button href="#" class="btn addCart"><span class="glyphicon glyphicon-shopping-cart" ></span></button>
-                    <a ng-click="show" href="#/categogies/details"> 
-                      <h4 class="titlebook">The day you went away</h4>
-                    </a>
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-lg-4 items">
-                    <div class="imgBook">
-                    <a ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="https://vcdn.tikicdn.com/cache/w300/media/catalog/product/a/b/abab1_1_1_2.jpg" alt="Book">
-                    </a>
-                    </div>  
-                    <div class="information">
-                      <button href="#" class="btn heart"><span class="fa fa-heart"></span></button>
-                      <button href="#" class="btn addCart"><span class="glyphicon glyphicon-shopping-cart" ></span></button>
-                    <a ng-click="show" href="#/categogies/details"> 
-                      <h4 class="titlebook">The day you went away</h4>
-                    </a>
-                    </div>
-                  </div>
-            </div>
-
-      </div>
-    </script>
-    <script type="text/ng-template" id="pages/categogies.html">
-      <div class="container categogies">
-        <h2 class="list">Danh mục sản phẩm</h2>
-        <div class="row">
-           <ul class="nav nav-tabs">
-            <li class="active"><a href="#/categogies/adventure">Adventure</a></li>
-            <li><a href="#/categogies/biographical">Biographical</a></li>
-            <li><a href="#/categogies/romantic">Romantic</a></li>
-          </ul>
-        </div>
-        <div class="row">
-           <h2 class="typebook">Adventure</h2>    
-
-            <div class="col-sm-6 col-md-3 col-lg-2 items">
-              <div class="imgBook">
-                    <a ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="https://vcdn.tikicdn.com/cache/w300/media/catalog/product/a/b/abab1_1_1_2.jpg" alt="Book">
-                    </a>
-                    </div>  
-                    <div class="information">  
-                      <button href="#" class="btn heart"><span class="fa fa-heart"></span></button>
-                      <button href="#" class="btn addCart"><span class="glyphicon glyphicon-shopping-cart" ></span></button>
-                    <a ng-click="show" href="#/categogies/details">
-                      <h4 class="titlebook">The day you went away</h4>
-                    </a>
-                    </div>
-              </div>
-              <div class="col-sm-6 col-md-3 col-lg-2 items">
-              <div class="imgBook">
-                    <a ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="https://vcdn.tikicdn.com/cache/w300/media/catalog/product/a/b/abab1_1_1_2.jpg" alt="Book">
-                    </a>
-                    </div>  
-                    <div class="information">  
-                      <button href="#" class="btn heart"><span class="fa fa-heart"></span></button>
-                      <button href="#" class="btn addCart"><span class="glyphicon glyphicon-shopping-cart" ></span></button>
-                    <a ng-click="show" href="#/categogies/details">
-                      <h4 class="titlebook">The day you went away</h4>
-                    </a>
-                    </div>
-              </div>
-              <div class="col-sm-6 col-md-3 col-lg-2 items">
-              <div class="imgBook">
-                    <a ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="https://vcdn.tikicdn.com/cache/w300/media/catalog/product/a/b/abab1_1_1_2.jpg" alt="Book">
-                    </a>
-                    </div>  
-                    <div class="information">  
-                      <button href="#" class="btn heart"><span class="fa fa-heart"></span></button>
-                      <button href="#" class="btn addCart"><span class="glyphicon glyphicon-shopping-cart" ></span></button>
-                    <a ng-click="show" href="#/categogies/details">
-                      <h4 class="titlebook">The day you went away</h4>
-                    </a>
-                    </div>
-              </div>
-              <div class="col-sm-6 col-md-3 col-lg-2 items">
-              <div class="imgBook">
-                    <a ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="https://vcdn.tikicdn.com/cache/w300/media/catalog/product/a/b/abab1_1_1_2.jpg" alt="Book">
-                    </a>
-                    </div>  
-                    <div class="information">  
-                      <button href="#" class="btn heart"><span class="fa fa-heart"></span></button>
-                      <button href="#" class="btn addCart"><span class="glyphicon glyphicon-shopping-cart" ></span></button>
-                    <a ng-click="show" href="#/categogies/details">
-                      <h4 class="titlebook">The day you went away</h4>
-                    </a>
-                    </div>
-              </div>
-              <div class="col-sm-6 col-md-3 col-lg-2 items">
-              <div class="imgBook">
-                    <a ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="https://vcdn.tikicdn.com/cache/w300/media/catalog/product/a/b/abab1_1_1_2.jpg" alt="Book">
-                    </a>
-                    </div>  
-                    <div class="information">  
-                      <button href="#" class="btn heart"><span class="fa fa-heart"></span></button>
-                      <button href="#" class="btn addCart"><span class="glyphicon glyphicon-shopping-cart" ></span></button>
-                    <a ng-click="show" href="#/categogies/details">
-                      <h4 class="titlebook">The day you went away</h4>
-                    </a>
-                    </div>
-              </div>
-              <div class="col-sm-6 col-md-3 col-lg-2 items">
-              <div class="imgBook">
-                    <a ng-click="show" href="#/categogies/details">
-                      <img class="img-responsive" ng-src="https://vcdn.tikicdn.com/cache/w300/media/catalog/product/a/b/abab1_1_1_2.jpg" alt="Book">
-                    </a>
-                    </div>  
-                    <div class="information">  
-                      <button href="#" class="btn heart"><span class="fa fa-heart"></span></button>
-                      <button href="#" class="btn addCart"><span class="glyphicon glyphicon-shopping-cart" ></span></button>
-                    <a ng-click="show" href="#/categogies/details">
-                      <h4 class="titlebook">The day you went away</h4>
-                    </a>
-                    </div>
-              </div>
-          </div>
-
-        <div>
-
-        
-          <div class="row">
-          <ul class="pagination">
-            <li class="disabled"><a href="" aria-label="Previous"><span aria-hidden="true">&laquo</span></a></li>
-            <li class="active"><a href="">1</a></li>
-            <li class="disabled"><a href="">2</a></li>
-            <li class="disabled"><a href="">3</a></li>
-            <li class="disabled"><a href="" aria-label="Next"><span aria-hidden="true">&raquo</span></a></li>
-          </ul>
-          </div>
-      </div>
-    </script>
-    <script type="text/ng-template" id="pages/contact.html">
-        <div class="container">
-          <h2 class="contact">Liên hệ</h2>
-          <form class="ttin">
-            <p>
-              <span class="glyphicon glyphicon-home"> 21 Võ Thị Sáu, P.3, Q.3 </span><br/>
-              <span class="glyphicon glyphicon-phone-alt"> 0931 334 424</span><br/>
-              <span class="glyphicon glyphicon-hourglass"> Monday - Saturday: 9am - 5pm</span>
-            </p>
-          </form>
-
-          <div id="googleMap" style="height: 300px;">Click to direct</div>
-      </div>
-    </script>
-    <script type="text/ng-template" id="pages/admin/newpost.html">
-      <div class="container">
-        <div class="panel panel-primary newPost">
-          <div class="panel-heading addPost">Add new book</div>
-          <div class="panel-body">
-            <div class="post">Title:<br/><input /></div>
-            <div class="post">Author:<br/><input /></div>
-            <div class="post">Description:<br/><textarea cols="22" rows="6" class="descript"/></textarea>
-            <div class="post">Price:<br/><input /></div>
-          </div>
-          <div class="panel-footer">
-            <div class="post">
-                Categogies: 
-                <select>
-                  <option>Adventure</option>
-                  <option>Biographical</option>
-                  <option>Romantic</option>
-                </select>
-                <a class="btn btn-danger btnPost">Submit</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </script>
-    <script type="text/ng-template" id="pages/admin/listpost.html">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-4">
-            <div class="row post listpost">
-              <a ng-click="show" href="#/categogies/details">The day you went away</a>
-              <div class="floatright">
-                <a><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                <a><i class="fa fa-times" aria-hidden="true"></i></a>
-              </div>
-            </div>
-
-            <div class="row post-preview">
-                <div class="col-xs-3">
-                  <img class="img-responsive imgPreview" ng-src="https://vcdn.tikicdn.com/cache/w300/media/catalog/product/a/b/abab1_1_1_2.jpg" />
-                </div>
-                <div class="col-xs-9">
-                  <p>Dưới ngòi bút tài hoa của Đường Thất Công Tử, tâm lý nhân vật, những chuyển biến trong suy nghĩ, thái độ và cảm xúc của từng nhân vật hiện lên vô cùng sắc nét. Đoạn kết viên mãn và hạnh phúc của câu chuyện tình yêu “trái ý thiên mệnh” giữa Đông Hoa - Phượng Cửu trong tập 2 này chắc chắn sẽ để lại trong lòng bạn đọc nhiều ấn tượng.Chấp niệm suốt hai nghìn năm chỉ đổi lại hai chữ vô duyên.Nếu chung quy là vô duyên vậy tại sao lại cho chúng ta gặp nhau, chỉ một lần gặp gỡ mà vấn vương nghìn năm?Trong mộng cảnh trùng trùng mây mù có hình bóng của ai, hủy diệt nỗi tương tư của ai, chôn vùi đời này kiếp trước của ai?</p>
-                </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4">
-            <div class="row post listpost">
-              <a ng-click="show" href="#/categogies/details">The day you went away</a>
-              <div class="floatright">
-                <a><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                <a><i class="fa fa-times" aria-hidden="true"></i></a>
-              </div>
-            </div>
-
-            <div class="row post-preview">
-                <div class="col-xs-3">
-                  <img class="img-responsive imgPreview" ng-src="https://vcdn.tikicdn.com/cache/w300/media/catalog/product/a/b/abab1_1_1_2.jpg" />
-                </div>
-                <div class="col-xs-9">
-                  <p>Dưới ngòi bút tài hoa của Đường Thất Công Tử, tâm lý nhân vật, những chuyển biến trong suy nghĩ, thái độ và cảm xúc của từng nhân vật hiện lên vô cùng sắc nét. Đoạn kết viên mãn và hạnh phúc của câu chuyện tình yêu “trái ý thiên mệnh” giữa Đông Hoa - Phượng Cửu trong tập 2 này chắc chắn sẽ để lại trong lòng bạn đọc nhiều ấn tượng.Chấp niệm suốt hai nghìn năm chỉ đổi lại hai chữ vô duyên.Nếu chung quy là vô duyên vậy tại sao lại cho chúng ta gặp nhau, chỉ một lần gặp gỡ mà vấn vương nghìn năm?Trong mộng cảnh trùng trùng mây mù có hình bóng của ai, hủy diệt nỗi tương tư của ai, chôn vùi đời này kiếp trước của ai?</p>
-                </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="row post listpost">
-              <a ng-click="show" href="#/categogies/details">The day you went away</a>
-              <div class="floatright">
-                <a><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                <a><i class="fa fa-times" aria-hidden="true"></i></a>
-              </div>
-            </div>
-
-            <div class="row post-preview">
-                <div class="col-xs-3">
-                  <img class="img-responsive imgPreview" ng-src="https://vcdn.tikicdn.com/cache/w300/media/catalog/product/a/b/abab1_1_1_2.jpg" />
-                </div>
-                <div class="col-xs-9">
-                  <p>Dưới ngòi bút tài hoa của Đường Thất Công Tử, tâm lý nhân vật, những chuyển biến trong suy nghĩ, thái độ và cảm xúc của từng nhân vật hiện lên vô cùng sắc nét. Đoạn kết viên mãn và hạnh phúc của câu chuyện tình yêu “trái ý thiên mệnh” giữa Đông Hoa - Phượng Cửu trong tập 2 này chắc chắn sẽ để lại trong lòng bạn đọc nhiều ấn tượng.Chấp niệm suốt hai nghìn năm chỉ đổi lại hai chữ vô duyên.Nếu chung quy là vô duyên vậy tại sao lại cho chúng ta gặp nhau, chỉ một lần gặp gỡ mà vấn vương nghìn năm?Trong mộng cảnh trùng trùng mây mù có hình bóng của ai, hủy diệt nỗi tương tư của ai, chôn vùi đời này kiếp trước của ai?</p>
-                </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </script>
-    <script type="text/ng-template" id="pages/signin.html">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-5">
-            <div class="sign">
-              <form>
-                <div class="form-group">
-                  <label>Account</label>
-                  <input type="email" class="form-control" id="email">
-                </div>
-                <div class="form-group">
-                  <label for="pwd">Password:</label>
-                  <input type="password" class="form-control" id="pwd">
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox"> Remember me</label>
-                </div>
-                <button type="submit" class="btn btn-default">Sign In</button>
-              </form>
-            </div>
-          </div>
-          <div class="col-sm-2 divOR">
-              <a class="btn btn-warning btnOR">OR</a>
-          </div>
-          <div class="col-sm-5">
-            <div class="sign">
-              <form>
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="email" class="form-control" id="email">
-                </div>
-                <div class="form-group">
-                  <label for="pwd">Password:</label>
-                  <input type="password" class="form-control" id="pwd">
-                </div>
-                <div class="form-group">
-                  <label for="pwd">Password again:</label>
-                  <input type="password" class="form-control" id="pwd1">
-                </div>
-                <button type="submit" class="btn btn-default">Register</button>
-              </form>
-            </div>
-          </div>
-      </div>
-    </script>
-    <script type="text/ng-template" id="pages/cart.html">
-      <div class="container">
-        <div class="panel panel-primary">
-          <div class="panel-heading">Shopping cart</div>
-          <div class="panel-body">
-            <div class="row titleCart">
-              <div class="col-xs-6 col-sm-7 products">
-                Products
-              </div>
-              <div class="col-xs-3 col-sm-3">
-                Amount
-              </div>
-              <div class="col-xs-3 col-sm-2">
-                Sum
-              </div>
-            </div>
-            <div class="row product">
-              <div class="col-xs-2 col-sm-2">
-                <img class="img-responsive imgPreview" ng-src="https://vcdn.tikicdn.com/cache/w300/media/catalog/product/a/b/abab1_1_1_2.jpg" />
-              </div>
-              <div class="col-xs-4 col-sm-5 titleBook">
-                Descendants of the Sun
-              </div>
-              <div class="col-xs-3 col-sm-3">
-                Số lượng: <input value="1"/>
-              </div>
-              <div class="col-xs-3 col-sm-2">
-                $9.9
-              </div>
-            </div>
-            <div class="row product">
-              <div class="col-xs-2 col-sm-2">
-                <img class="img-responsive imgPreview" ng-src="https://vcdn.tikicdn.com/cache/w300/media/catalog/product/a/b/abab1_1_1_2.jpg" />
-              </div>
-              <div class="col-xs-4 col-sm-5 titleBook">
-                Descendants of the Sun
-              </div>
-              <div class="col-xs-3 col-sm-3">
-                Số lượng: <input value="1"/>
-              </div>
-              <div class="col-xs-3 col-sm-2">
-                $9.9
-              </div>
-            </div>
-          </div>
-          <div class="panel-footer">
-            <div class="left footercart">
-            Total
-            </div>
-            <div class="right footercart">
-              $9.9
-            </div>
-          </div>
-        </div>
-        </div> 
-    </script>
-    <script type="text/ng-template" id="pages/categogies/details.html">
-      <div class="container details" ng-app="MyApp">
-      <h2 class="ProductsDetails">Chi tiết sản phẩm</h2>
-          <div class="panel panel-primary">
-            <div class="panel-heading">Socrates In Love</div>
-            <div class="panel-body">
-              <div class="imgDetails">
-                <div class="row">
-                  <div class="col-xs-6 plugin" ng-controller="DemoCtrl">
-
-        <div class="carousel-demo-fullscreen">
-            <ul rn-carousel rn-carousel-controls rn-carousel-transition="hexagon" rn-carousel-index="carouselIndex" rn-carousel-buffered class="carousel1">
-                <li ng-repeat="slide in slides track by slide.id" ng-class="'id-' + slide.id">
-                    <div ng-style="{'background-image': 'url(' + slide.img + ')'}"  class="bgimage">
-                      <ul rn-carousel class="image">
-                        <li>slide #1</li>
-                        <li>slide #2</li>
-                        <li>slide #3</li>
-                      </ul>
-                    </div>
-                </li>
-            </ul>
-        </div>
-                  
-                  </div>
-                  <div class="col-xs-6">
-                    <h4 class="titleDetails">Thông tin chi tiết</h4>
-                    <p>Categogies: Reomantic</p>
-                    <p>CAuthor: Takashimaya</p>
-                    <p>Published: March 214</p>
-                    <p>Price: 10$</p> 
-                  </div>
-                  <div>
-                      <p class="contentProducts">Nội dung</p>
-                    <p>Socrates In Love là câu chuyện về tình yêu học trò trong sáng, thanh thuần, sống động và chân thực của tuổi mười bảy.</p>
-                    <p>Socrates In Love không có những khoảnh khắc bùng nổ của cảm xúc, cũng không có những ghen tuông hờn giận dữ dội của tình yêu, lại càng không có tính toán so đo được mất. Socrates In Love nhẹ nhàng như dòng suối mát trôi lững lờ trong mỗi cuộc đời với mối tình đầu đẹp đẽ, với những rung động tuy nhỏ, nhưng chứa đầy sự ngây ngô của tuổi trẻ lần đầu biết yêu.</p>
-                    <p>Không gian của truyện trong trẻo, vương một nỗi buồn man mác với cái kết trắc trở. Tất cả e thẹn, băn khoăn, thậm chí lời tỏ tình non nớt, ngượng ngùng đều chỉ là quá khứ - một quá khứ tưởng như thật xa mà cũng như thật gần, vì Aki đã đi rồi, bệnh ung thư đã đoạt mất Aki của Saku, và còn lại, là hồi ức của một trái tim yêu, của tiếng gọi tình yêu còn đang vang vọng trong cuộc sống.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="bodyDetails">
-                
-              </div>          
-            </div>
-            <div class="panel-footer post-footer">
-                <div class="input-group"> 
-                    <input class="form-control" placeholder="Add a comment" type="text">
-                    <span class="input-group-addon">
-                        <a href="#"><i class="fa fa-edit"></i></a>  
-                    </span>
-                </div>
-               <ul class="comments-list">
-                  <li class="comment">
-                    <a class="pull-left" href="#">
-                      <img class="avatar" src="http://3.bp.blogspot.com/_1Jw2fzSntT0/TZC7zd6pN6I/AAAAAAAABMY/x61e0ToHYOo/w1600/050.gif" alt="avatar">
-                    </a>
-                    <div class="comment-body">
-                      <div class="comment-heading">
-                        <h4 class="user">Ryan Haywood</h4>
-                        <h5 class="time"><sub>3 minutes ago</sub></h5>
-                      </div>
-                      <p>Relax my friend</p>
-                    </div>
-                  </li> 
-                  <li class="comment">
-                    <a class="pull-left" href="#">
-                      <img class="avatar" src="http://3.bp.blogspot.com/_1Jw2fzSntT0/TZC7zd6pN6I/AAAAAAAABMY/x61e0ToHYOo/w1600/050.gif" alt="avatar">
-                    </a>
-                    <div class="comment-body">
-                      <div class="comment-heading">
-                        <h4 class="user">Gavino Free</h4>
-                        <h5 class="time"><sub>3 minutes ago</sub></h5>
-                      </div>
-                      <p>Ok, cool.</p>
-                    </div>
-                  </li>
-                </ul>   
-            </div>
-        </div>
-      </div>
-    </script>
-  
-  <header id="header">
-      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+<body ng-app="myApp" ng-controller="BooksController" ng-init="getBooks()">
+    <header id="header ">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation ">
+            <div class="container ">
+                <div class="navbar-header ">
+                    <button type="button " class="navbar-toggle collapsed " data-toggle="collapse " data-target="#navbar " aria-expanded="false " aria-controls="navbar ">
+                    <span class="sr-only "></span>
+                    <span class="icon-bar "></span>
+                    <span class="icon-bar "></span>
+                    <span class="icon-bar "></span>
                 </button>
-                <a class="navbar-brand" href="">NT Book Store</a>
+                    <a class="navbar-brand " href="#/">NT</a>
+                </div>
+                <div id="navbar " class="navbar-collapse collapse " aria-expanded="false " style="height: 1px; ">
+                    <ul class="nav navbar-nav ">
+                        <li class="active "><a href="#/ ">Trang chủ</a></li>
+                        <li class="dropdown"><a href="#/categogy" class="dropdown-toggle" data-toggle="dropdown" href="#">Danh mục<span class="caret"></span></a>
+                            <ul class="dropdown-menu" ng-init="getGenres()">
+                                <li ng-repeat=" genre in genres "><a href="#/books/category/{{genre._id}}">{{genre.name}}</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#/contact ">Liên hệ</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right ">
+                        <li>
+                            <form class="search" name="search" ng-submit="textSearch.length>0?submitSearch():''" ng-show="showSearch">
+                                <div class="input-group">
+                                    <input type="text" class="form-control search" ng-model="textSearch" placeholder="Search">
+                                    <div class="input-group-btn">
+                                        <select class="form-control  search select-search" ng-model="searchBy">
+                                                <option value="search" selected>Tên sách</option>
+                                                <option value="author">Tác giả</option>
+                                            </select>
+                                        <button class="btn btnSearch" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </li>
+                        <li class="search_hidden" ng-click="SearchFunc()"><a class="btn" type="submit"><span class="glyphicon glyphicon-search "></span></a></li>
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-shopping-cart " ></span> 2 - Items<span class="caret"></span></a>
+                            <ul class="dropdown-menu dropdown-cart" role="menu">
+                                <li>
+                                    <span class="item">
+                                        <span class="item-left">
+                                            <img src="http://lorempixel.com/50/50/" alt="" />
+                                            <span class="item-info">
+                                                <span>Item name</span>
+                                    <span>23$</span>
+                                    </span>
+                                    </span>
+                                    <span class="item-right">
+                                            <button class="btn btn-xs btn-danger pull-right">x</button>
+                                        </span>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="item">
+                                        <span class="item-left">
+                                            <img src="http://lorempixel.com/50/50/" alt="" />
+                                            <span class="item-info">
+                                                <span>Item name</span>
+                                    <span>23$</span>
+                                    </span>
+                                    </span>
+                                    <span class="item-right">
+                                            <button class="btn btn-xs btn-danger pull-right">x</button>
+                                        </span>
+                                    </span>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a class="text-center" href="#/cart ">View Cart</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href=""><span class="glyphicon glyphicon-user "></span><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/login">Đăng nhập</a></li>
+                                <li><a href="#/user">Hồ sơ cá nhân</a></li>
+                                <li><a href="#/admin">Admin</a></li>
+                                <li><a href="">Đăng xuất</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
             </div>
-            <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#/">Home</a></li>
-                    <li class="dropdown">
-                        <a href="#/categogies" class="dropdown-toggle" data-toggle="dropdown">Categogies<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#/categogies/adventure">Adventure</a></li>
-                            <li><a href="#/categogies/biographical">Biographical</a></li>
-                            <li><a href="#/categogies/romantic">Romantic</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#/admin" class="dropdown-toggle" data-toggle="dropdown">Admin<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#/admin/newpost">New Post</a></li>
-                            <li><a href="#/admin/listpost">List Post</a></li>
-                        </ul>
-                    </li>    
-                    <li><a href="#/contact">Contact Us</a></li>           
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                  <li>
-                    <a><input type="text" placehoher="Search"/></a>
-                  </li>
-                  <li><a href="#/search"><span class="glyphicon glyphicon-search"></span></span></a></li>
-                  <li><a href="#/signin"><span class="glyphicon glyphicon-user"></span></a></li>
-                  <li><a href="#/cart"><span class="glyphicon glyphicon-shopping-cart" ></span></a></li>
-                </ul>
-            </div><!--/.nav-collapse -->
-        </div>
-    </nav>
+        </nav>
     </header>
-
-    <div ng-view class="view">
-        
+    <div class="container-fluid page">
+        <div ng-view>
+        </div>
     </div>
 
     <footer>
-      <nav class="navbar navbar-inverse navbar-fixed-bottom">
-        <div class="container-fluid footer">
-          <div class="social">
-            <ul class="btn-social">
-              <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-            </ul>
-          </div>
-          <div class="copyright">© 2017 Copyright by Thương<div>
-        </div>
-      </nav>
+        <nav class="navbar navbar-inverse navbar-fixed-bottom ">
+            <div class="container-fluid footer ">
+                <div class="social ">
+                    <ul class="btn-social ">
+                        <li><a href=" "><i class="fa fa-facebook " aria-hidden="true "></i></a></li>
+                        <li><a href="# "><i class="fa fa-google-plus " aria-hidden="true "></i></a></li>
+                        <li><a href="# "><i class="fa fa-linkedin " aria-hidden="true "></i></a></li>
+                    </ul>
+                </div>
+                <div class="copyright ">© 2017 Copyright by Thương
+                    <div>
+                    </div>
+        </nav>
     </footer>
-    <script src="js/app.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular-touch.min.js"></script>
-    <script src="js/angular-carousel.min.js"></script>
-    <script src="js/carousel.js"></script>
-  </body>
+    <script src="ui-bootstrap-tpls-2.5.0.min.js "></script>
+    <script src="app.js "></script>
+    <script src="controllers/books.js "></script>
+    <script src="controllers/service.js "></script>
+</body>
+
 </html>

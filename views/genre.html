@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row first" ng-init="getBookByGenre()">
+        <div class="col-md-4 col-lg-3" ng-init="getGenres()">
+            <div class="leftBar">
+                <div class="panel panel-primary sideBar">
+                    <div class="panel-heading">Danh mục</div>
+                    <div class="panel-body genres">
+                        <ul class="genres">
+                            <li ng-repeat=" genre in genres "><a href="#/category/{{genre._id}}">{{genre.name}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8 col-lg-9">
+            <div class="rightBar">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <p>Sách thuộc thể loại</p>
+                    </div>
+                    <div class="panel-body" ng-innit="getBooks()">
+                        <div class="row">
+                            <div class="col-sm-6 col-lg-4" ng-repeat=" book in books">
+                                <div class="items ">
+                                    <div class="imgBook ">
+                                        <a ng-click="show " href="#/category/details/{{book._id}} ">
+                                            <img class="img-responsive " ng-src="{{book.images.main}} " alt="Book ">
+                                        </a>
+                                    </div>
+                                    <div class="information ">
+                                        <button href="# " class="btn heart "><span class="fa fa-heart "></span></button>
+                                        <button href="# " class="btn addCart "><span class="glyphicon glyphicon-shopping-cart " ></span></button>
+                                        <div class="previousPrice ">{{book.previousPrice| currency:"$ ":0}}</div>
+                                        <div class="sellingPrice ">{{book.sellingPrice| currency:"$ ":0}}</div>
+                                        <a ng-click="show " href="#/category/details/{{book._id}} ">
+                                            <h4 class="titlebook ">{{book.title}}</h4>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
