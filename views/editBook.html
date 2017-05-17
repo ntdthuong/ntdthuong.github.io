@@ -1,0 +1,101 @@
+<div class="container editBook">
+    <div class="panel panel-primary formEdit">
+        <div class="panel-heading">
+            <h3 class="panel-title"><a href="#/admin"><i class="fa fa-arrow-left back" aria-hidden="true"></i></a>Edit Book</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12" ng-init="getGenres()">
+                    <form name="postForm" ng-submit="updateBook()" ng-init="getBook()">
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input type="text" class="form-control" ng-model="book.title" placeholder="Title">
+                        </div>
+                        <div class="form-group">
+                            <label>Genre & Author</label>
+                            <select ng-model="book.genre" ng-required="true" class="form-control" ng-options="genre as genre.name for genre in genres track by genre._id" />
+                        </div>
+                        <div class="form-group">
+                            <label>Author</label>
+                            <input type="text" class="form-control" ng-model="book.author" placeholder="Author">
+                        </div>
+                        <div class="form-group">
+                            <label>Publisher</label>
+                            <input type="text" class="form-control" ng-model="book.publisher" placeholder="Publisher">
+                        </div>
+                        <div class="form-group">
+                            <label>Pages</label>
+                            <input type="text" class="form-control" ng-model="book.pages" placeholder="Pages">
+                        </div>
+                        <div class="form-group">
+                            <label>Weight</label>
+                            <input type="text" class="form-control" ng-model="book.weight" placeholder="Weight">
+                        </div>
+                        <div class="form-group">
+                            <label>Width</label>
+                            <input type="text" class="form-control" ng-model="book.size.width" placeholder="Width">
+                        </div>
+                        <div class="form-group">
+                            <label>Depth</label>
+                            <input type="text" class="form-control" ng-model="book.size.depth" placeholder="Depth">
+                        </div>
+                        <div class="form-group">
+                            <p class="input-group">
+                                <label>Release Date</label>
+                                <input type="text" class="form-control " uib-datepicker-popup="MM/dd/yyyy" ng-model="book.releaseDate" is-open="popup2.opened" datepicker-options="" close-text="Close" />
+                                <span class="input-group-btn ">
+                                                <button type="button" class=" picker btn btn-default btn-md" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <label>Short Description</label>
+                            <!--<textarea class="form-control" ng-model="book.shortDescription" placeholder="Short Description"></textarea>-->
+                            <div text-angular="text-angular" name="shortDescription" ng-model="book.shortDescription" ta-disabled='disabled' class="inputDescription"></div>
+                        </div>
+                        <div class="form-group">
+                            <label>Full Description</label>
+                            <!--<textarea class="form-control" ng-model="book.fullDescription" placeholder="Full Description"></textarea>-->
+                            <div text-angular="text-angular" name="fullDescription" ng-model="book.fullDescription" ta-disabled='disabled' class="inputDescription"></div>
+                        </div>
+                        <div class="form-group">
+                            <label>Main Image</label>
+                            <input type="text" class="form-control" ng-model="book.images.main" placeholder="Main Image">
+                        </div>
+                        <!--<div class="form-group">
+                            <label>First Image</label>
+                            <input type="text" class="form-control" ng-model="book.images.first" placeholder="Main Image">
+                        </div>
+                        <div class="form-group">
+                            <label>Second Image</label>
+                            <input type="text" class="form-control" ng-model="book.images.second" placeholder="Second Image">
+                        </div>-->
+                        <div class="form-group">
+                            <label>Sku</label>
+                            <input type="text" class="form-control" ng-model="book.sku" placeholder="Sku">
+                        </div>
+                        <div class="form-group">
+                            <label>Revious Price</label>
+                            <input type="text" class="form-control" ng-model="book.previousPrice" placeholder="Revious Price">
+                        </div>
+                        <div class="form-group">
+                            <label>Selling Price</label>
+                            <input type="number" class="form-control" ng-model="book.sellingPrice" placeholder="Selling Price">
+                        </div>
+                        <div class="form-group">
+                            <p class="input-group">
+                                <label>Create Date</label>
+                                <input type="text" class="form-control " uib-datepicker-popup="MM/dd/yyyy" ng-model="book.CreateDate" is-open="popup1.opened" datepicker-options="" close-text="Close" />
+                                <span class="input-group-btn ">
+                                                <button type="button" class=" picker btn btn-default btn-md" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                            </p>
+                        </div>
+
+                        <span ng-class="postForm.$invalid?'disable':''"><button ng-disabled="postForm.$invalid" type="submit" class="btn btn-primary">Submit</button></span>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

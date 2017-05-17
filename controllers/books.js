@@ -1,4 +1,4 @@
-app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams', '$location', function($scope, service, $http, $routeParams, $location) {
+app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams', '$location', '$anchorScroll', function($scope, service, $http, $routeParams, $location, $anchorScroll) {
 
     $scope.getBooks = function() {
         $http.get(service.getBooks).success(function(response) {
@@ -14,6 +14,53 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
             console.log(response)
         });
     };
+
+    $scope.addBook = function() {
+        console.log($scope.book);
+        var reqBook = {
+            method: 'POST',
+            url: service.getBooks,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: $scope.book
+        }
+        $http(reqBook).then(function() {
+            console.log('success')
+            window.location.href = '#/admin/';
+        })
+
+    }
+
+    $scope.updateBook = function() {
+        var id = $routeParams.id;
+        $http.put(service.getBooks + id, $scope.book).success(function(response) {
+            window.location.href = '#/admin/';
+        });
+    }
+
+    $scope.removeBook = function(id) {
+        $http.delete(service.getBooks + id).success(function(response) {
+            window.location.href = '#/admin/';
+        });
+    }
+
+    // date
+
+    $scope.open1 = function() {
+        $scope.popup1.opened = true;
+    };
+    $scope.popup1 = {
+        opened: false
+    };
+    $scope.open2 = function() {
+        $scope.popup2.opened = true;
+    };
+    $scope.popup2 = {
+        opened: false
+    };
+    // end date
+
 
     $scope.getGenres = function() {
         $http.get(service.getGenres).success(function(response) {
@@ -100,12 +147,12 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
             function() {
                 console.log('error')
             });
-        // $http.put(bookservice.getBook + $routeParams.itemId, $scope.post).success(function(response) {
-        //     console.log('success')
-        // });
-
         console.log(post);
+    };
+    /*--------Cart ---------*/
 
-    }
+    $scope.scroll = function() {
+        $anchorScroll();
+    };
 
 }])

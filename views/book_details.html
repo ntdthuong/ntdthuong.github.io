@@ -1,6 +1,5 @@
-<a href="#/categogy">Trở về</a>
 <div class="container details " ng-init="getBook()">
-    <h2 class="ProductsDetails ">Chi tiết sản phẩm</h2>
+    <h2 class="ProductsDetails "><a href="#/categogy"><i class="fa fa-arrow-left back" aria-hidden="true"></i></a>Chi tiết sản phẩm</h2>
     <div class="panel panel-primary ">
         <div class="panel-heading ">{{book.title}}</div>
         <div class="panel-body ">
@@ -26,10 +25,15 @@
                             <p><b>Price:</b> 10$</p>
                         </div>
                     </div>
-                    <div class="contentBook ">
-                        <h4 class="contentProducts ">Nội dung</h4>
-                        <p>{{book.fullDescription}}</p>
+
+                    <div class=" card fullDescription contentBook">
+                        <div class="card-title contentProducts">Nội dung</div>
+                        <div ta-bind="text" ng-model="book.fullDescription" ta-readonly='disabled'>
+
+                        </div>
+
                     </div>
+
                 </div>
             </div>
         </div>
