@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 rightBar" ng-init="getGenres()">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Admin</div>
+                <div class="panel-body genres">
+                    <ul>
+                        <li><a ng-click="showme=true" href="">Đăng sách</a></li>
+                        <li><a ng-click="showme=false" href="">Quản lý sách</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9" ng-innit="getBooks()">
+            <div class="wrap">
+                <div class="panel panel-primary newPost" ng-show="showme">
+                    <div class="panel-heading addPost ">Đăng sách</div>
+                    <div class="panel-body ">
+                        <form name="postForm " ng-submit="addBook()" novalidate>
+                            <div class="post">Tiêu đề:<br/><input ng-model="book.title" type="text" required/></div>
+                            <div class="post">Tác giả:<br/><input ng-model="book.author" type="text" required/></div>
+                            <div class="post">Nhà xuất bản:<br/><input ng-model="book.publisher" type="text" required/></div>
+                            <div class="post">Số trang:<br/><input ng-model="book.page" type="number" /></div>
+                            <div class="post">Trọng lượng:<br/><input ng-model="book.weight" type="number" /></div>
+                            <div class="post">Chiều rộng:<br/><input ng-model="book.width" type="number" /></div>
+                            <div class="post">Chiều dài:<br/><input ng-model="book.depth" type="number" /></div>
+                            <div class="post">Ngày xuất bản:<br/><input type="text" ng-model="book.releaseDate" uib-datepicker-popup="MM/dd/yyyy" /></div>
+                            <div class="post">Mô tả ngắn:<br/><textarea ng-model="book.shortDescription" cols="10" rows="2" class="descript" /></textarea>
+                            </div>
+                            <div class="post">Mô tả chi tiết:<br/><textarea ng-model="book.fullDescription" cols="22" rows="4" class="descript" /></textarea>
+                            </div>
+                            <div class="post">Hình chính:<br/><input ng-model="book.images.main" type="url" required/></div>
+                            <div class="post">Hình 1:<br/><input ng-model="book.images.first" type="url" /></div>
+                            <div class="post">Hình 2:<br/><input ng-model="book.images.second" type="url" /></div>
+                            <div class="post">
+                                SKU:<br/>
+                                <input type="text" ng-model="book.sku" required>
+                            </div>
+                            <div class="post">Giá gốc:<br/><input ng-model="previousPrice" type="number" required/></div>
+                            <div class="post">Giá đã giảm:<br/><input ng-model="sellingPrice" type="number" required/></div>
+                            <div class="post">Ngày tạo:<br/><input type="text" ng-model="createDate" uib-datepicker-popup="MM/dd/yyyy" required/></div>
+                            <div class="post" ng-init="getGenres()">
+                                Categogies:
+                                <select>
+                                <option ng-repeat=" genre in genres ">{{genre.name}}</option>
+                            </select>
+                            </div>
+                            <div>
+                                <span ng-class="postForm.$invalid?'disable':''"><input type="submit" value="Submit" ng-disabled="postForm.$invalid" class="btn btn-danger" /> </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="panel panel-primary ListBook" ng-hide="showme">
+                    <div class="panel-heading">Danh sách</div>
+                    <div class="panel-body genres">
+                        <div class="row" ng-init="getBooks()">
+                            <div class="col-md-6 col-lg-4" ng-repeat=" book in books">
+                                <div class=" listpost ">
+                                    <div class="postTitle">
+                                        <a ng-click="show " href="#/books/details/{{book._id}}">{{book.title}}</a>
+                                        <div class="floatright ">
+                                            <a class="btn edit" href="#/edit/{{book._id}}"><i class="fa fa-pencil-square-o " aria-hidden="true "></i></a>
+                                            <a class="btn del" href="" ng-click="removeBook(book._id)"><i class="fa fa-times " aria-hidden="true "></i></a>
+
+                                        </div>
+                                    </div>
+                                    <div class="row post-preview ">
+                                        <div class="col-sm-6 ">
+                                            <img class="img-responsive imgPreview " ng-src="{{book.images.main}}" />
+                                        </div>
+                                        <div class="col-sm-6 ">
+                                            <div class="previousPrice">{{book.previousPrice| currency:"$":0}}</div>
+                                            <div class="sellingPrice">{{book.sellingPrice| currency:"$":0}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

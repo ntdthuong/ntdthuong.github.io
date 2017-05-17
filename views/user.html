@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3" ng-init="getGenres()">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Người dùng</div>
+                <div class="panel-body genres">
+                    <ul>
+                        <li><a href="" ng-click="showme=false">Thông tin</a></li>
+                        <li><a href="" ng-click="showme=true">Đơn hàng</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-9" ng-innit="getBooks()">
+            <div class="panel panel-primary" ng-hide="showme">
+                <div class="panel-heading">Thông tin</div>
+                <div class="panel-body">
+                    <div class=" wrap">
+                        <div class="profile-content" ng-show="!editProfie">
+                            <h4>{{user.userName}}</h4>
+                            <p>Email: {{user.userEmail}}</p>
+                            <p>Địa chỉ: {{user.address}} </p>
+                            <p>Điện thoại: {{user.phone}}</p>
+                            <button class="btn btn-success" ng-click="editProfie=true"> Thay đổi</button>
+                        </div>
+                        <form class="profile-content" name="formProfile" ng-show="editProfie" novalidate>
+                            <div class="form-group">
+                                <input ng-model="userName" type="text" name="username" ng-model="editUser.userName" class="form-control" placeholder="Tên" ng-required="true" minlength="5">
+                                <p ng-show="formProfile.username.$invalid && !formProfile.username.$pristine" class="text-danger"> Tên không hợp lệ</p>
+                            </div>
+                            <div class="form-group">
+                                <input ng-model="pass" type="password" name="password" ng-model="editUser.password" class="form-control " minlength="5" placeholder="Password" ng-required="true" minlength="6">
+                            </div>
+                            <div class="form-group">
+                                <input ng-model="again" type="password" name="passwordConfirm" ng-model="editUser.passwordConfirm" compare-to="editUser.password" class="form-control " placeholder="Nhập lại password" ng-required="true">
+                                <p ng-show="formProfile.passwordConfirm.$invalid && !formProfile.passwordConfirm.$pristine" class="text-danger"> Password không hợp lệ</p>
+
+                            </div>
+                            <div class="col-xs-12 col-md-6"><input class="btn btn-danger " type="reset" ng-click="editProfie=false"></div>
+                            <div class="col-xs-12 col-md-6"><input type="submit" value="Thay đổi" class="btn btn-success pull-right"></div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-primary" ng-show="showme">
+                <div class="panel-heading">Đơn hàng</div>
+                <div class="panel-body">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>

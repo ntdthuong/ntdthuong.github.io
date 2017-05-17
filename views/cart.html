@@ -1,0 +1,40 @@
+<div class="container " ng-init="getBooks()">
+    <div class="panel panel-primary ">
+        <div class="panel-heading ">Shopping cart</div>
+        <div class="panel-body ">
+            <div class="row titleCart ">
+                <div class="col-xs-7 col-sm-7 products ">
+                    Sản phẩm
+                </div>
+                <div class="col-xs-3 col-sm-3 ">
+                    Sl
+                </div>
+                <div class="col-xs-2 col-sm-2 ">
+                    Giá
+                </div>
+            </div>
+            <div class="row product " ng-repeat="item in cart">
+                <div class="col-xs-2 col-sm-2 ">
+                    <img class="img-responsive imgPreview " ng-src="{{item.item.images.main}} " />
+                </div>
+                <div class="col-xs-5 col-sm-5 titleBook ">
+                    {{item.item.title}}
+                </div>
+                <div class="col-xs-3 col-sm-3 ">
+                    Sl: <input type="number" ng-model="item.qty" min="1" class="form-control" />
+                </div>
+                <div class="col-xs-2 col-sm-2 ">
+                    {{item.item.sellingPrice*item.qty| number:2}}
+                    <a class="del"><i class="fa fa-times" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="panel-footer ">
+                <div class="left footercart ">
+                    Total
+                </div>
+                <div class="right footercart ">
+                    $9.9
+                </div>
+            </div>
+        </div>
+    </div>
