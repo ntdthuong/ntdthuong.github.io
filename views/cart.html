@@ -3,37 +3,34 @@
         <div class="panel-heading ">Shopping cart</div>
         <div class="panel-body ">
             <div class="row titleCart ">
-                <div class="col-xs-7 col-sm-7 products ">
+                <div class="col-xs-8 col-sm-7 products ">
                     Sản phẩm
                 </div>
-                <div class="col-xs-3 col-sm-3 ">
+                <div class="col-xs-1 col-sm-2 ">
                     Sl
                 </div>
-                <div class="col-xs-2 col-sm-2 ">
+                <div class="col-xs-3 col-sm-3 ">
                     Giá
                 </div>
             </div>
-            <div class="row product " ng-repeat="item in cart">
-                <div class="col-xs-2 col-sm-2 ">
-                    <img class="img-responsive imgPreview " ng-src="{{item.item.images.main}} " />
+            <div class="row product " ng-repeat="book in books | limitTo: 2">
+                <div class="col-xs-4 col-sm-3 col-md-2">
+                    <img class="img-responsive imgPreview " ng-src="{{book.images.main}} " />
                 </div>
-                <div class="col-xs-5 col-sm-5 titleBook ">
-                    {{item.item.title}}
+                <div class="col-xs-4 col-sm-4 col-md-5 titleBook ">
+                    {{book.title}}
                 </div>
-                <div class="col-xs-3 col-sm-3 ">
-                    Sl: <input type="number" ng-model="item.qty" min="1" class="form-control" />
+                <div class="col-xs-1 col-sm-2 col-md-2 ">
+                    Sl: <input value="1" type="number" class="form-control sl" />
                 </div>
-                <div class="col-xs-2 col-sm-2 ">
-                    {{item.item.sellingPrice*item.qty| number:2}}
+                <div class="col-xs-3 col-sm-3 col-md-3 ">
+                    {{book.sellingPrice| currency:"$":0}}
                     <a class="del"><i class="fa fa-times" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="panel-footer ">
-                <div class="left footercart ">
-                    Total
-                </div>
-                <div class="right footercart ">
-                    $9.9
+                <div class="footercart ">
+                    Total: $250,000
                 </div>
             </div>
         </div>

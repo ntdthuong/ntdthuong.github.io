@@ -1,10 +1,10 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-3 rightBar" ng-init="getGenres()">
+<div class="container admin">
+    <div class="row" ng-init="getGenres()">
+        <div class="col-md-3 rightBar">
             <div class="panel panel-primary">
                 <div class="panel-heading">Admin</div>
                 <div class="panel-body genres">
-                    <ul>
+                    <ul class="paddLeft">
                         <li><a ng-click="showme=true" href="">Đăng sách</a></li>
                         <li><a ng-click="showme=false" href="">Quản lý sách</a></li>
                     </ul>
@@ -13,46 +13,111 @@
         </div>
 
         <div class="col-md-9" ng-innit="getBooks()">
-            <div class="wrap">
+            <div class="wrapper">
                 <div class="panel panel-primary newPost" ng-show="showme">
-                    <div class="panel-heading addPost ">Đăng sách</div>
-                    <div class="panel-body ">
-                        <form name="postForm " ng-submit="addBook()" novalidate>
-                            <div class="post">Tiêu đề:<br/><input ng-model="book.title" type="text" required/></div>
-                            <div class="post">Tác giả:<br/><input ng-model="book.author" type="text" required/></div>
-                            <div class="post">Nhà xuất bản:<br/><input ng-model="book.publisher" type="text" required/></div>
-                            <div class="post">Số trang:<br/><input ng-model="book.page" type="number" /></div>
-                            <div class="post">Trọng lượng:<br/><input ng-model="book.weight" type="number" /></div>
-                            <div class="post">Chiều rộng:<br/><input ng-model="book.width" type="number" /></div>
-                            <div class="post">Chiều dài:<br/><input ng-model="book.depth" type="number" /></div>
-                            <div class="post">Ngày xuất bản:<br/><input type="text" ng-model="book.releaseDate" uib-datepicker-popup="MM/dd/yyyy" /></div>
-                            <div class="post">Mô tả ngắn:<br/><textarea ng-model="book.shortDescription" cols="10" rows="2" class="descript" /></textarea>
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Add Book</h3>
+                    </div>
+                    <div class="panel-body" ng-init="picker()">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form name="postForm" ng-submit="addBook()">
+                                    <div class="form-group">
+                                        <label class="control-label">Title<span ng-show="postForm.title.$invalid && !postForm.title.$pristine" class="text-danger"> Title is required.</span></label>
+                                        <input type="text" class="form-control" ng-model="book.title" placeholder="Title" ng-required="true">
+                                    </div>
+                                    <div class="form-group" ng-init="getGenres()">
+                                        <label>Genre & Author</label>
+                                        <select ng-model="book.genre" ng-required="true" class="form-control" ng-options="genre as genre.name for genre in genres" />
+                                        <p ng-show="postForm.genre.$invalid" class="text-danger"> Genre is required.</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Author: <span ng-show="postForm.author.$invalid && !postForm.author.$pristine" class="text-danger"> Author is required.</span></label>
+                                        <input type="text" class="form-control" ng-model="book.author" placeholder="Author" ng-required="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Publisher: <span ng-show="postForm.publisher.$invalid  && !postForm.publisher.$pristine" class="text-danger"> Publisher is required.</span></label>
+                                        <input type="text" class="form-control" ng-model="book.publisher" placeholder="Publisher">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Pages</label>
+                                        <input type="text" class="form-control" ng-model="book.pages" placeholder="Pages">
+                                        <p ng-show="postForm.pages.$error.number" class="text-danger"> Page is number.</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Weight</label>
+                                        <input type="text" class="form-control" ng-model="book.weight" placeholder="Weight">
+                                        <p ng-show="postForm.weight.$error.number" class="text-danger"> weight is number.</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Width</label>
+                                        <input type="text" class="form-control" ng-model="book.size.width" placeholder="Width">
+                                        <p ng-show="postForm.width.$error.number" class="text-danger"> width is number.</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Depth</label>
+                                        <input type="text" class="form-control" ng-model="book.size.depth" placeholder="Depth">
+                                        <p ng-show="postForm.depth.$error.number" class="text-danger"> depth is number.</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <p class="input-group">
+                                            <label>Release Date</label>
+                                            <input type="text" class="form-control " uib-datepicker-popup="MM/dd/yyyy" ng-model="book.releaseDate" is-open="popup2.opened" datepicker-options="" close-text="Close" />
+                                            <span class="input-group-btn ">
+                                                <button type="button" class=" picker btn btn-default btn-md" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Short Description</label>
+
+                                        <div text-angular="text-angular" name="shortDescription" ng-model="book.shortDescription" ta-disabled='disabled' class="inputDescription"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Full Description</label>
+                                        <div text-angular="text-angular" name="fullDescription" ng-model="book.fullDescription" ta-disabled='disabled' class="inputDescription"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Main Image</label>
+                                        <input type="url" class="form-control" ng-model="book.images.main" placeholder="Main Image" ng-required="true">
+                                    </div>
+                                    <!--<div class="form-group">
+                                        <label>First Image</label>
+                                        <input type="url" class="form-control" ng-model="book.images.first" placeholder="Main Image">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Second Image</label>
+                                        <input type="url" class="form-control" ng-model="book.images.second" placeholder="Second Image">
+                                    </div>-->
+                                    <div class="form-group">
+                                        <label>Sku</label>
+                                        <input type="text" class="form-control" ng-model="book.sku" placeholder="Sku">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Revious Price</label>
+                                        <input type="text" class="form-control" ng-model="book.previousPrice" placeholder="Revious Price">
+                                        <p ng-show="postForm.previousPrice.$error.number" class="text-danger"> Price is number.</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Selling Price</label>
+                                        <input type="number" class="form-control" ng-model="book.sellingPrice" placeholder="Selling Price">
+                                        <p ng-show="postForm.sellingPrice.$error.number" class="text-danger"> Price is number.</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <p class="input-group">
+                                            <label>Create Date</label>
+                                            <input type="text" class="form-control " uib-datepicker-popup="MM/dd/yyyy" ng-model="CreateDate" is-open="popup1.opened" datepicker-options="" close-text="Close" />
+                                            <span class="input-group-btn ">
+                                                <button type="button" class=" picker btn btn-default btn-md" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <span ng-class="postForm.$invalid?'disable':''"><button ng-disabled="postForm.$invalid" type="submit" class="btn btn-primary">Submit</button></span>
+                                </form>
                             </div>
-                            <div class="post">Mô tả chi tiết:<br/><textarea ng-model="book.fullDescription" cols="22" rows="4" class="descript" /></textarea>
-                            </div>
-                            <div class="post">Hình chính:<br/><input ng-model="book.images.main" type="url" required/></div>
-                            <div class="post">Hình 1:<br/><input ng-model="book.images.first" type="url" /></div>
-                            <div class="post">Hình 2:<br/><input ng-model="book.images.second" type="url" /></div>
-                            <div class="post">
-                                SKU:<br/>
-                                <input type="text" ng-model="book.sku" required>
-                            </div>
-                            <div class="post">Giá gốc:<br/><input ng-model="previousPrice" type="number" required/></div>
-                            <div class="post">Giá đã giảm:<br/><input ng-model="sellingPrice" type="number" required/></div>
-                            <div class="post">Ngày tạo:<br/><input type="text" ng-model="createDate" uib-datepicker-popup="MM/dd/yyyy" required/></div>
-                            <div class="post" ng-init="getGenres()">
-                                Categogies:
-                                <select>
-                                <option ng-repeat=" genre in genres ">{{genre.name}}</option>
-                            </select>
-                            </div>
-                            <div>
-                                <span ng-class="postForm.$invalid?'disable':''"><input type="submit" value="Submit" ng-disabled="postForm.$invalid" class="btn btn-danger" /> </span>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
-
                 <div class="panel panel-primary ListBook" ng-hide="showme">
                     <div class="panel-heading">Danh sách</div>
                     <div class="panel-body genres">
@@ -60,16 +125,15 @@
                             <div class="col-md-6 col-lg-4" ng-repeat=" book in books">
                                 <div class=" listpost ">
                                     <div class="postTitle">
-                                        <a ng-click="show " href="#/books/details/{{book._id}}">{{book.title}}</a>
+                                        <a ng-click="show " href="#/book/details/{{book._id}}">{{book.title}}</a>
                                         <div class="floatright ">
                                             <a class="btn edit" href="#/edit/{{book._id}}"><i class="fa fa-pencil-square-o " aria-hidden="true "></i></a>
                                             <a class="btn del" href="" ng-click="removeBook(book._id)"><i class="fa fa-times " aria-hidden="true "></i></a>
-
                                         </div>
                                     </div>
                                     <div class="row post-preview ">
                                         <div class="col-sm-6 ">
-                                            <img class="img-responsive imgPreview " ng-src="{{book.images.main}}" />
+                                            <img class="img-responsive" ng-src="{{book.images.main}}" />
                                         </div>
                                         <div class="col-sm-6 ">
                                             <div class="previousPrice">{{book.previousPrice| currency:"$":0}}</div>

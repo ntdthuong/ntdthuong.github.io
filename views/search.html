@@ -1,34 +1,27 @@
 <div class="container" ng-init="search()">
     <div ng-init="getBooks()">
-        <div class="row promotion">
-            <h2 class="typebook">Kết quả tìm kiếm "{{textSearch}}"</h2>
-            <div class="col-sm-6 col-lg-4 items" ng-repeat="book in searchBook">
-                <div class="imgBook">
-                    <a ng-click="show " href="#/books/details/{{book._id}} ">
-                        <img class="img-responsive " ng-src="{{book.images.main}} " alt="Book ">
-                    </a>
-
-                </div>
-                <!--<div class="shortDescription">
-                    <p>{{book.shortDescription}}</p>
-                </div>-->
-                <div class="information ">
-                    <button href="# " class="btn heart "><span class="fa fa-heart "></span></button>
-                    <button href="# " class="btn addCart "><span class="glyphicon glyphicon-shopping-cart " ></span></button>
-                    <a ng-click="show " href="#/books/details/{{book._id}} ">
-                        <h4 class="titlebook ">{{book.title}}</h4>
-                    </a>
+        <div class="" ng-init="getBooks()">
+            <h2 class="typebook">Kết quả tìm kiếm " {{textSearch}} "</h2>
+            <div class="row ">
+                <div class=" col-sm-6 col-md-4 col-lg-3 " ng-repeat="book in searchBook ">
+                    <div class="items ">
+                        <div class="imgBook">
+                            <a ng-click="show " href="#/books/details/{{book._id}} ">
+                                <img class="img-responsive " ng-src="{{book.images.main}} " alt="Book ">
+                            </a>
+                        </div>
+                        <div class="information ">
+                            <button href="# " class="btn heart "><span class="fa fa-heart "></span></button>
+                            <button href="# " class="btn addCart "><span class="glyphicon glyphicon-shopping-cart " ></span></button>
+                            <div class="previousPrice ">{{book.previousPrice| currency:"$ ":0}}</div>
+                            <div class="sellingPrice ">{{book.sellingPrice| currency:"$ ":0}}</div>
+                            <a ng-click="show " href="#/books/details/{{book._id}} ">
+                                <h4 class="titlebook ">{{book.title}}</h4>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row rightbar">
-        <ul class="pagination ">
-            <li class="disabled "><a href=" " aria-label="Previous "><span aria-hidden="true ">&laquo</span></a></li>
-            <li class="active "><a href=" ">1</a></li>
-            <li class="disabled "><a href=" ">2</a></li>
-            <li class="disabled "><a href=" ">3</a></li>
-            <li class="disabled "><a href=" " aria-label="Next "><span aria-hidden="true ">&raquo</span></a></li>
-        </ul>
     </div>
 </div>

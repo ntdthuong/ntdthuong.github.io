@@ -1,13 +1,12 @@
-<a href="#/categogies">Trở về</a>
 <div class="container details " ng-init="getBook()">
-    <h2 class="ProductsDetails ">Chi tiết sản phẩm</h2>
+    <h2 class="ProductsDetails "><a href="#/categogy"><i class="fa fa-arrow-left back" aria-hidden="true"></i></a>Chi tiết sản phẩm</h2>
     <div class="panel panel-primary ">
         <div class="panel-heading ">{{book.title}}</div>
         <div class="panel-body ">
             <div class="imgDetails ">
                 <div class="row ">
-                    <div class="col-sm-4 imgDetails ">
-                        <img class="img-responsive " ng-src=" {{book.images.main}} " />
+                    <div class="col-xs-6 col-sm-4  ">
+                        <img class="img-responsive imgDetails " ng-src=" {{book.images.main}} " />
                         <ul class="star">
                             <li><a><i class="fa fa-star" aria-hidden="true"></i></a></li>
                             <li><a><i class="fa fa-star" aria-hidden="true"></i></a></li>
@@ -16,20 +15,25 @@
                             <li><a><i class="fa fa-star" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
-                    <div class="col-sm-8 ">
-                        <div class="row " ng-init="search()">
+                    <div class="col-xs-6  col-sm-8">
+                        <div class="row detail" ng-init="search()">
                             <h4 class="titleDetails ">Thông tin chi tiết</h4>
-                            <p>Categogies: <a href="#/books/category/{{book.genre._id}}">{{book.genre.name}}</a></p>
-                            <p>Author: <a href="#/search/{{book.author}}">{{book.author}}</a></p>
-                            <p>Published: {{book.publisher}}</p>
-                            <p>Pages: {{book.pages}}</p>
-                            <p>Price: 10$</p>
+                            <p><b>Categogies:</b> <a href="#/category/{{book.genre._id}}">{{book.genre.name}}</a></p>
+                            <p><b>Author:</b> <a href="#/search/{{book.author}}">{{book.author}}</a></p>
+                            <p><b>Published:</b> {{book.publisher}}</p>
+                            <p><b>Pages:</b> {{book.pages}}</p>
+                            <p><b>Price:</b> 10$</p>
                         </div>
                     </div>
-                    <div class="contentBook ">
-                        <p class="contentProducts ">Nội dung</p>
-                        <p>{{book.fullDescription}}</p>
+
+                    <div class=" card fullDescription contentBook">
+                        <div class="card-title contentProducts">Nội dung</div>
+                        <div ta-bind="text" ng-model="book.fullDescription" ta-readonly='disabled'>
+
+                        </div>
+
                     </div>
+
                 </div>
             </div>
         </div>
