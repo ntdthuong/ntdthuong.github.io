@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-cookies.min.js"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -21,7 +23,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body ng-app="myApp" ng-controller="BooksController" ng-init="getBooks()">
+<body ng-app="myApp" ng-controller="BooksController" ng-init="init();getBooks()">
 
     <header id="header ">
         <nav class="navbar navbar-inverse navbar-fixed-top " role="navigation ">
@@ -32,7 +34,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>                        
                     </button>
-                    <a class="navbar-brand logo" href="#/" ng-click="scroll()"><img class="img-responsive img-circle" ng-src="www.tattooshunt.com/images/28/leo-zodiac-sign-tattoo-design.jpg" /></a>
+                    <a class="navbar-brand logo" href="#/" ng-click="scroll()"><img class="img-responsive img-circle" ng-src="http://www.tattooshunt.com/images/28/leo-zodiac-sign-tattoo-design.jpg" /></a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
@@ -61,14 +63,21 @@
                             </form>
                         </li>
                         <li class="search_hidden" ng-click="SearchFunc()"><a><span class="glyphicon glyphicon-search "></span></a></li>
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href=""><span class="glyphicon glyphicon-user "></span><span class="caret"></span></a>
+                        <li ng-hide="isLogged()"><a href="#/login" ng-click="scroll()"><span class="glyphicon glyphicon-user "></span></a></li>
+                        <li ng-show="isLogged()" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">{{user.name}} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#/login" ng-click="scroll()">Đăng nhập</a></li>
+                                <li><a href="#/user">Trang cá nhân</a></li>
+                                <li><a ng-click="logOut()">Logout</a></li>
+                            </ul>
+                        </li>
+                        <!--<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href=""><span class="glyphicon glyphicon-user "></span><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
                                 <li><a href="#/admin" ng-click="scroll()">Admin</a></li>
                                 <li><a href="#/user" ng-click="scroll()">Hồ sơ cá nhân</a></li>
                                 <li><a href="" ng-click="scroll()">Đăng xuất</a></li>
                             </ul>
-                        </li>
+                        </li>-->
                         <li class="dropdown">
                             <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-shopping-cart " ></span> 2 - Items<span class="caret"></span></a>
                             <ul class="dropdown-menu dropdown-cart" role="menu">

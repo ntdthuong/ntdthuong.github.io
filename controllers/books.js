@@ -1,4 +1,10 @@
-app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams', '$location', '$anchorScroll', function($scope, service, $http, $routeParams, $location, $anchorScroll) {
+app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams', '$location', '$anchorScroll', '$cookieStore', function($scope, service, $http, $routeParams, $location, $anchorScroll, $cookieStore) {
+    var config = {
+        headers: {
+            'Accept': 'application/json;odata=verbose',
+            "x-access-token": $scope.token
+        }
+    };
 
     $scope.getBooks = function() {
         $http.get(service.getBooks).success(function(response) {
@@ -154,5 +160,74 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
     $scope.scroll = function() {
         $anchorScroll();
     };
+
+    /*--------login logout ---------*/
+    $scope.loadLogin = function() {
+        var token = $cookieStore.get('token');
+        if (token !== undefined) {
+            $location.url("/")
+        }
+        console.log("loadlogin")
+    }
+
+    $scope.logOut = function() {
+        $cookieStore.remove('token');
+        $cookieStore.remove('user');
+    }
+
+    $scope.viewProfile = function() {
+        var token = $cookieStore.get('token');
+        if (token === undefined) {
+            $location.url("/login")
+        }
+    }
+
+
+    $scope.summitLogin = function() {
+        $http.post('https://green-web-bookstore.herokuapp.com' + '/api/auth', $scope.loginUser).success(function(response) {
+            var isSuccess = response.success;
+            if (isSuccess) {
+                $cookieStore.put('token', response.token);
+                $cookieStore.put('user', response.user);
+                $scope.user = $cookieStore.get('user');
+                $scope.token = $cookieStore.get('token');
+                //Redirect here
+                $location.url("/")
+            } else {
+                //Raise Error
+                alert(response.message);
+            }
+        }).error(function(data, status, headers, config) {
+            console.log(data, status, headers, config);
+        });;
+    }
+
+    $scope.summitSignup = function() {
+        $http.post('https://green-web-bookstore.herokuapp.com' + '/api/signup/', $scope.signUpUser).success(function(response) {
+            var isSuccess = response.success;
+            if (isSuccess) {
+                $cookieStore.put('token', response.token);
+                $cookieStore.put('user', response.user);
+                $scope.user = $cookieStore.get('user');
+                $scope.token = $cookieStore.get('token');
+                //Redirect here
+                $location.url("/")
+            } else {
+                //Raise Error
+                alert(response.message);
+            }
+        }).error(function(data, status, headers, config) {
+            console.log(data, status, headers, config);
+        });
+    }
+
+    $scope.init = function() {
+        $scope.user = $cookieStore.get('user');
+        $scope.token = $cookieStore.get('token');
+    }
+
+    $scope.isLogged = function() {
+        return $cookieStore.get('token') != undefined;
+    }
 
 }])

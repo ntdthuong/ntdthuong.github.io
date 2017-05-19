@@ -79,6 +79,12 @@ a:hover {
 }
 
 
+/*sign in sign up*/
+
+
+/*footer*/
+
+
 /*footer*/
 
 footer {
@@ -393,6 +399,9 @@ ul.star {
     .input-group {
         max-width: 200px;
     }
+    /*.infoSign {
+        width: 150px;
+    }*/
 }
 
 @media screen and (max-width: 767px) {
