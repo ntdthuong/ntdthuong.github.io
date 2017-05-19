@@ -5,11 +5,25 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
             "x-access-token": $scope.token
         }
     };
+    $scope.paging = function() {
+
+        $scope.totalItems = $scope.books.length;
+        $scope.currentPage = 1;
+        $scope.itemsPerPage = 4;
+        $scope.maxSize = 5;
+        $scope.changePage = function() {
+            var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
+                end = begin + $scope.itemsPerPage;
+
+            $scope.filteredBooks = $scope.books.slice(begin, end);
+        };
+        $scope.changePage();
+    };
 
     $scope.getBooks = function() {
         $http.get(service.getBooks).success(function(response) {
             $scope.books = response;
-
+            $scope.paging();
         })
     };
     $scope.getBook = function() {
@@ -94,6 +108,7 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
                 }
 
             }
+            $scope.paging();
         })
     }
     $scope.myInterval = 2000;
@@ -229,5 +244,7 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
     $scope.isLogged = function() {
         return $cookieStore.get('token') != undefined;
     }
+
+
 
 }])

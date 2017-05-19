@@ -41,21 +41,18 @@
 
     <div class=" reviews" ng-repeat="comment in book.comments|orderBy: 'createdOn' :true">
         <div class="media">
-            <div class="col-sm-1">
-                <div class="avatar">
-                    <a href="#">
+            <div class="row ">
+                <div class="col-xs-2 col-md-1">
+                    <div class="avatar">
                         <img class="img-responsive" ng-src="{{comment.userAvatarUrl}}" alt="...">
-                    </a>
+                    </div>
                 </div>
-
-
-
-            </div>
-            <div class="col-sm-11 text-left">
-                <h4 class="media-heading">{{comment.userName}}</h4>
-                <span uib-rating ng-model="comment.rate" max="max" read-only="true"></span>
-                <span> {{comment.date|date:'dd/ MM/ yyyy h:mma'}}</span>
-                <p>{{comment.commentBody}}</p>
+                <div class="col-xs-10 col-md-11 text-left">
+                    <h4 class="media-heading">{{comment.userName}}</h4>
+                    <span uib-rating ng-model="comment.rate" max="max" read-only="true"></span>
+                    <span> {{comment.date|date:'dd/ MM/ yyyy h:mma'}}</span>
+                    <p>{{comment.commentBody}}</p>
+                </div>
             </div>
         </div>
     </div>

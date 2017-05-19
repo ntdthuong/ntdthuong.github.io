@@ -28,6 +28,10 @@ a:hover {
     margin: 0;
 }
 
+.pagination {
+    float: right;
+}
+
 
 /*.search_hidden {
     margin-left: 30px;
@@ -307,6 +311,12 @@ ul.genres {
 
 
 /*details view*/
+
+.avatar {
+    max-width: 80px;
+    width: 100%;
+    margin-bottom: 10px;
+}
 
 .back {
     font-size: 25px;
