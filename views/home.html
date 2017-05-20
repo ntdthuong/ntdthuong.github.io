@@ -32,7 +32,7 @@
                                 <div class="items">
                                     <div class="imgBook">
                                         <a ng-click="show " href="#/book/details/{{book._id}} ">
-                                            <img class="img-responsive " ng-src="{{book.images.main}}" alt="Book ">
+                                            <img class="img-responsive mdIMG" ng-src="{{book.images.main}}" alt="Book ">
                                         </a>
                                     </div>
                                     <div class="information ">
@@ -53,11 +53,11 @@
                     <div class="panel-heading">Sách mới</div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class=" col-sm-6 col-md-4 col-lg-3" ng-repeat=" book in books |limitTo:4 ">
+                            <div class=" col-sm-6 col-md-4 col-lg-3" ng-repeat="book in books | filter : {'title' : 'm'} | limitTo: 4">
                                 <div class="items">
                                     <div class="imgBook">
                                         <a ng-click="show " href="#/book/details/{{book._id}} ">
-                                            <img class="img-responsive " ng-src="{{book.images.main}}" alt="Book ">
+                                            <img class="img-responsive mdIMG" ng-src="{{book.images.main}}" alt="Book ">
                                         </a>
                                     </div>
                                     <div class="information ">
@@ -77,11 +77,11 @@
                     <div class="panel-heading">Sách bán chạy</div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class=" col-sm-6 col-md-4 col-lg-3" ng-repeat=" book in books |limitTo:4 ">
+                            <div class=" col-sm-6 col-md-4 col-lg-3" ng-repeat=" book in books | filter : {'title' : 't'} | limitTo: 4 ">
                                 <div class="items">
                                     <div class="imgBook">
                                         <a ng-click="show " href="#/book/details/{{book._id}} ">
-                                            <img class="img-responsive " ng-src="{{book.images.main}}" alt="Book ">
+                                            <img class="img-responsive mdIMG" ng-src="{{book.images.main}}" alt="Book ">
                                         </a>
                                     </div>
                                     <div class="information ">

@@ -32,6 +32,15 @@ a:hover {
     float: right;
 }
 
+.mdIMG {
+    max-height: 100%;
+}
+
+.btn-home {
+    margin-bottom: 100px;
+    margin-right: 20px;
+}
+
 
 /*.search_hidden {
     margin-left: 30px;
@@ -236,10 +245,6 @@ ul.dropdown-cart li .item-right button {
     border-bottom: double 3px #337ab7;
 }
 
-.imgGenre {
-    max-height: 250px;
-}
-
 .imgBook img {
     margin: auto;
 }
@@ -318,9 +323,10 @@ ul.genres {
     margin-bottom: 10px;
 }
 
-.back {
+.opTop {
+    margin-bottom: 100px;
     font-size: 25px;
-    float: left;
+    float: right;
 }
 
 .titleDetails,
@@ -373,6 +379,11 @@ ul.star {
 
 /*admin view*/
 
+.imgAD-preview {
+    height: 170px;
+    overflow: hidden;
+}
+
 .picker {
     margin: 25px;
 }
@@ -380,6 +391,8 @@ ul.star {
 .listpost {
     border: solid 1px #23527c;
     margin-bottom: 10px;
+    height: 230px;
+    margin: 2px;
 }
 
 .postTitle {
@@ -424,9 +437,28 @@ ul.star {
     .search_hidden {
         margin-left: 0;
     }
+    .price-preview>.previousPrice,
+    .price-preview>.sellingPrice {
+        margin: auto;
+        text-align: center;
+    }
+    .imgAD-preview {
+        height: 210px;
+    }
+    .picEdit {
+        max-height: 100%;
+        width: auto;
+    }
+    .listpost {
+        height: 270px;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
+    .picEdit {
+        max-height: 100%;
+        width: auto;
+    }
     .imgBook {
         height: 350px;
     }

@@ -14,17 +14,18 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
         $scope.changePage = function() {
             var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
                 end = begin + $scope.itemsPerPage;
-
             $scope.filteredBooks = $scope.books.slice(begin, end);
         };
         $scope.changePage();
     };
 
     $scope.getBooks = function() {
+        var id = $routeParams.id;
         $http.get(service.getBooks).success(function(response) {
             $scope.books = response;
             $scope.paging();
-        })
+
+        });
     };
     $scope.getBook = function() {
         var id = $routeParams.id;
@@ -125,6 +126,7 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
     $scope.submitSearch = function() {
         console.log(service.getBooks + $scope.searchBy + $scope.textSearch)
         window.location.href = '#/search/' + $scope.textSearch;
+        // $scope.urlSearch = '#/search/' + $scope.textSearch;
     }
     $scope.showSearch = false;
     $scope.SearchFunc = function() {
