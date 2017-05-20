@@ -137,7 +137,7 @@ footer {
 /*shopping cart*/
 
 ul.dropdown-cart {
-    width: 205px;
+    width: 250px;
 }
 
 ul.dropdown-cart li .item {
@@ -174,7 +174,7 @@ ul.dropdown-cart li .item-left img {
 
 ul.dropdown-cart li .item-left span.item-info {
     margin-left: 10px;
-    width: 100px;
+    width: 150px;
 }
 
 ul.dropdown-cart li .item-left span.item-info span {

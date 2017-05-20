@@ -37,7 +37,7 @@
                                     </div>
                                     <div class="information ">
                                         <button href="# " class="btn heart "><span class="fa fa-heart "></span></button>
-                                        <button href="# " class="btn addCart " ng-click="addCart()"><span class="glyphicon glyphicon-shopping-cart " ></span></button>
+                                        <button href="# " class="btn addCart " ng-click="addCart(book)"><span class="glyphicon glyphicon-shopping-cart " ></span></button>
                                         <div class="previousPrice">{{book.previousPrice| currency:"$":0}}</div>
                                         <div class="sellingPrice">{{book.sellingPrice| currency:"$":0}}</div>
                                         <a ng-click="show " href="#/book/details/{{book._id}} ">
@@ -62,7 +62,7 @@
                                     </div>
                                     <div class="information ">
                                         <button href="# " class="btn heart "><span class="fa fa-heart "></span></button>
-                                        <button href="# " class="btn addCart "><span class="glyphicon glyphicon-shopping-cart " ></span></button>
+                                        <button href="# " class="btn addCart " ng-click="addCart(book)"><span class="glyphicon glyphicon-shopping-cart " ></span></button>
                                         <div class="price">{{book.sellingPrice| currency:"$":0}}</div>
                                         <a ng-click="show " href="#/book/details/{{book._id}} ">
                                             <h4 class="titlebook ">{{book.title}}</h4>
@@ -86,7 +86,7 @@
                                     </div>
                                     <div class="information ">
                                         <button href="# " class="btn heart "><span class="fa fa-heart "></span></button>
-                                        <button href="# " class="btn addCart "><span class="glyphicon glyphicon-shopping-cart " ></span></button>
+                                        <button href="# " class="btn addCart " ng-click="addCart(book)"><span class="glyphicon glyphicon-shopping-cart " ></span></button>
                                         <div class="price">{{book.sellingPrice| currency:"$":0}}</div>
                                         <a ng-click="show " href="#/book/details/{{book._id}} ">
                                             <h4 class="titlebook ">{{book.title}}</h4>

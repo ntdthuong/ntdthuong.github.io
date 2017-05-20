@@ -80,34 +80,22 @@
                             </ul>
                         </li>-->
                         <li class="dropdown">
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-shopping-cart " ></span> 2 - Items<span class="caret"></span></a>
-                            <ul class="dropdown-menu dropdown-cart" role="menu">
-                                <li>
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-shopping-cart " ></span><span class="qty" >({{cart.length}})</span><span class="caret"></span></a>
+                            <ul class="dropdown-menu dropdown-cart" role="menu" ng-show="cart.length>0">
+                                <li ng-repeat="item in cart">
                                     <span class="item">
                                         <span class="item-left">
-                                            <img ng-src="https://dieutriranda.com/wp-content/uploads/2016/05/icon-quytrinh.png" alt="" />
+                                            <img ng-src="{{item.item.images.main}}"  alt="" />
                                             <span class="item-info">
-                                                <span>Item name</span>
-                                    <span>23$</span>
+                                                <span>{{item.item.title}}</span>
+                                    <span>{{item.item.sellingPrice|currency:"$":0}}</span>
+                                    <span class="qty">{{item.qty}} quyển</span>
                                     </span>
                                     </span>
                                     <span class="item-right">
-                                            <button class="btn btn-xs btn-danger pull-right">x</button>
-                                        </span>
+                                            
+                                    <button class="btn btn-xs btn-danger pull-right" ng-click='removeCart($index)'>x</button>
                                     </span>
-                                </li>
-                                <li>
-                                    <span class="item">
-                                        <span class="item-left">
-                                            <img ng-src="https://dieutriranda.com/wp-content/uploads/2016/05/icon-quytrinh.png" alt="" />
-                                            <span class="item-info">
-                                                <span>Item name</span>
-                                    <span>23$</span>
-                                    </span>
-                                    </span>
-                                    <span class="item-right">
-                                            <button class="btn btn-xs btn-danger pull-right">x</button>
-                                        </span>
                                     </span>
                                 </li>
                                 <li class="divider"></li>

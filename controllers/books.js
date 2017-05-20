@@ -173,7 +173,80 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
         console.log(post);
     };
     /*--------Cart ---------*/
+    $scope.qty = 1;
 
+    $scope.addCart = function(item) {
+        console.log("addCart ok")
+        if (service.cart.length > 0) {
+            for (var i = 0; i < service.cart.length; i++) {
+                if (service.cart[i].item.sku === item.sku) {
+                    $scope.addedItem = true;
+                    service.cart[i].qty += $scope.qty;
+                    service.item[i].qty += $scope.qty;
+                }
+
+
+            }
+            if ($scope.addedItem) {
+                $scope.addedItem = false;
+
+            } else {
+                service.cart.push({ item, qty: 1 });
+                service.item.push({ item, qty: 1 });
+            }
+        } else {
+            service.cart.push({ item, qty: $scope.qty });
+            ervice.item.push({ item, qty: $scope.qty });
+        }
+
+        console.log("addCart ìf ok")
+    }
+    $scope.cart = service.cart;
+
+    /*------------Bill--------------*/
+    $scope.total = 0;
+    $scope.sum = function() {
+        for (var i = 0; i < service.cart.length; i++) {
+            $scope.total += service.cart[i].item.sellingPrice * service.cart[i].qty;
+
+        }
+    }
+    $scope.sum();
+    $scope.bill = {};
+
+    $scope.checkout = function() {
+        if ($scope.cart.length > 0) {
+            $scope.bill.items = service.item;
+            $scope.bill.date = Date.now();
+            $scope.bill.total = $scope.total;
+            service.bills.push($scope.bill);
+            console.log(service.bills)
+            service.item = [];
+            service.cart.splice(0, service.cart.length);
+            $scope.total = 0;
+
+
+        }
+    }
+    $scope.changeQty = function(index) {
+        service.item[index].qty = service.cart[index].qty;
+        $scope.total = 0;
+        $scope.sum();
+    }
+    $scope.bills = service.bills;
+
+    $scope.removeCart = function(item) {
+        console.log(item.qty)
+
+        service.cart.splice(item, 1);
+        service.item.splice(item, 1);
+        $scope.total = 0;
+        $scope.sum();
+
+    }
+
+
+    /*--------scrooll ---------*/
     $scope.scroll = function() {
         $anchorScroll();
     };
