@@ -1,8 +1,8 @@
-<div class="container" ng-init="getBooks()" ng-show="cart.length>0">
+<div class="container" ng-init="getBooks()">
     <div class="row viewCart">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-primary ">
-                <div class="panel-heading ">Shopping cart</div>
+                <div class="panel-heading ">Đơn hàng</div>
                 <div class="panel-body ">
                     <div class="row titleCart ">
                         <div class="col-xs-6 col-sm-8 products ">
@@ -16,27 +16,23 @@
                         </div>
                     </div>
                     <div class="row  ">
-                        <div class="row divider product" ng-repeat="item in cart">
-                            <div class="col-xs-6 col-sm-8 ">
-                                <div class="row">
-                                    <div class="col-xs-6 ">
-                                        <img class="img-responsive imgCart " ng-src="{{item.item.images.main}} " />
-                                    </div>
-                                    <div class="col-xs-6 titleBook ">
-                                        {{item.item.title}}
-                                    </div>
-                                </div>
+                        <div class="row divider  product" ng-repeat="book in books | limitTo: 1">
+                            <div class="col-xs-6 col-sm-8  titleBook ">
+                                {{book.title}}
                             </div>
                             <div class="col-xs-2 col-sm-2  ">
-                                Sl: <input type="number" ng-model="item.qty" min="1" class="form-control sl" ng-change="changeQty($index)" />
+                                Sl: <input name="quantity" value="1" type="number" class="form-control sl" ng-change="changeQty($index)" />
                             </div>
                             <div class="col-xs-4 col-sm-2  ">
-                                {{item.item.sellingPrice*item.qty| currency:"$":0}}<br/>
+                                $100.000<br/>
                                 <a class="del" ng-click='removeCart($index)'><i class="fa fa-times" aria-hidden="true"></i></a>
                             </div>
                         </div>
-                        <div class="row footercart ">
-                            Total: {{total|currency:"$":0}}
+                        <div class="row infoOrder">
+                            <h4>Thông tin giao hàng</h4>
+                            <h5>Người nhận: Đăng Thương</h5>
+                            <p>Địa chỉ: 21/15 Vạn Kiếp, p.3, q.Bình Thạnh </p>
+                            <p>Điện thoại: 0965414424</p>
                         </div>
                     </div>
                 </div>

@@ -2,6 +2,10 @@ a:hover {
     text-decoration: none;
 }
 
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
 .typebook {
     text-align: center;
     color: #23527c;
@@ -57,6 +61,11 @@ a:hover {
 
 /*header*/
 
+.back {
+    float: left;
+    font-size: 20px;
+}
+
 .page {
     margin-top: 50px;
     background-color: #E9FAF6;
@@ -71,6 +80,15 @@ a:hover {
 
 .bggenre {
     background-color: #E9FAF6;
+}
+
+.titleHead {
+    height: 50px;
+}
+
+.empty {
+    font-size: 20px;
+    text-align: center;
 }
 
 .emptyGenre,
@@ -136,6 +154,15 @@ footer {
 
 /*shopping cart*/
 
+.imgCart {
+    max-height: 250px;
+}
+
+div.footercart {
+    margin-top: 5px;
+    padding-right: 10px;
+}
+
 ul.dropdown-cart {
     width: 250px;
 }
@@ -199,6 +226,8 @@ ul.dropdown-cart li .item-right button {
 }
 
 .product {
+    margin-left: 2px;
+    margin-right: 2px;
     border-bottom: solid 2px #337ab7;
     margin-bottom: 10px;
     padding: 10px;
@@ -209,16 +238,22 @@ ul.dropdown-cart li .item-right button {
 }
 
 .sl {
-    width: 60px;
+    width: 58px;
+}
+
+.edit {
+    font-size: 20px;
 }
 
 .del {
+    font-size: 20px;
     float: right;
     padding-left: 0;
     padding-right: 5px;
 }
 
 .footercart {
+    margin-right: 10px;
     float: right;
     font-weight: bold;
     font-size: 20px;
@@ -272,6 +307,10 @@ ul.dropdown-cart li .item-right button {
     font-size: 20px;
 }
 
+.oriPrice {
+    text-decoration: line-through;
+}
+
 .price {
     font-size: 20px;
 }
@@ -315,7 +354,18 @@ ul.genres {
 }
 
 
+/*order view*/
+
+.infoOrder {
+    text-align: center;
+}
+
+
 /*details view*/
+
+body>div>div>div>div.panel.panel-primary>div.panel-body>div>div>div.col-xs-6.col-sm-4>span>span>i {
+    font-size: 20px;
+}
 
 .avatar {
     max-width: 80px;
@@ -391,14 +441,15 @@ ul.star {
 .listpost {
     border: solid 1px #23527c;
     margin-bottom: 10px;
-    height: 230px;
+    height: 250px;
     margin: 2px;
 }
 
 .postTitle {
     padding: 5px;
-    height: 50px;
+    height: 60px;
     border-bottom: solid 1px #23527c;
+    font-size: 17px;
 }
 
 .post-preview {
@@ -428,6 +479,10 @@ ul.star {
 }
 
 @media screen and (max-width: 767px) {
+    .viewCart {
+        margin-right: -20px;
+        margin-left: -20px;
+    }
     .imgBook {
         height: 365px;
     }
@@ -444,13 +499,14 @@ ul.star {
     }
     .imgAD-preview {
         height: 210px;
+        overflow: hidden;
     }
     .picEdit {
         max-height: 100%;
         width: auto;
     }
     .listpost {
-        height: 270px;
+        height: 290px;
     }
 }
 
@@ -481,4 +537,21 @@ ul.star {
     .imgGenre {
         height: 400px;
     }
+}
+
+
+/*----loading------*/
+
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    z-index: 2000;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -32,6 +32,14 @@ app.config(function($routeProvider) {
             templateUrl: 'views/admin.html',
             controller: 'BooksController'
         })
+        .when('/admin/orders', {
+            templateUrl: 'views/orders.html',
+            controller: 'BooksController'
+        })
+        .when('/admin/details/order', {
+            templateUrl: 'views/detailsOrder.html',
+            controller: 'BooksController'
+        })
         .when('/add', {
             templateUrl: 'views/addBook.html',
             controller: 'BooksController'

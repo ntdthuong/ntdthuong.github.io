@@ -7,6 +7,7 @@
                     <ul class="paddLeft">
                         <li><a ng-click="showme=true" href="">Đăng sách</a></li>
                         <li><a ng-click="showme=false" href="">Quản lý sách</a></li>
+                        <li><a href="#/admin/orders" href="">Đơn hàng</a></li>
                     </ul>
                 </div>
             </div>
@@ -23,45 +24,45 @@
                             <div class="col-md-12">
                                 <form name="postForm" ng-submit="addBook()">
                                     <div class="form-group">
-                                        <label class="control-label">Title<span ng-show="postForm.title.$invalid && !postForm.title.$pristine" class="text-danger"> Title is required.</span></label>
+                                        <label class="control-label">Tiêu đề<span ng-show="postForm.title.$invalid && !postForm.title.$pristine" class="text-danger"> Title is required.</span></label>
                                         <input type="text" class="form-control" ng-model="book.title" placeholder="Title" ng-required="true">
                                     </div>
                                     <div class="form-group" ng-init="getGenres()">
-                                        <label>Genre & Author</label>
-                                        <select ng-model="book.genre" ng-required="true" class="form-control" ng-options="genre as genre.name for genre in genres" />
-                                        <p ng-show="postForm.genre.$invalid" class="text-danger"> Genre is required.</p>
+                                        <label>Thể loại</label>
+                                        <select ng-model="book.genre" ng-required="true" class="form-control" ng-options="genre as genre.name for genre in genres"></select>
+                                        <p ng-show="postForm.genre.$invalid" class="text-danger"> Vui lòng chọn thể loại.</p>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label">Author: <span ng-show="postForm.author.$invalid && !postForm.author.$pristine" class="text-danger"> Author is required.</span></label>
+                                        <label class="control-label">Tác giả <span ng-show="postForm.author.$invalid && !postForm.author.$pristine" class="text-danger"> Author is required.</span></label>
                                         <input type="text" class="form-control" ng-model="book.author" placeholder="Author" ng-required="true">
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label">Publisher: <span ng-show="postForm.publisher.$invalid  && !postForm.publisher.$pristine" class="text-danger"> Publisher is required.</span></label>
+                                        <label class="control-label">Nhà xuất bản <span ng-show="postForm.publisher.$invalid  && !postForm.publisher.$pristine" class="text-danger"> Publisher is required.</span></label>
                                         <input type="text" class="form-control" ng-model="book.publisher" placeholder="Publisher">
                                     </div>
                                     <div class="form-group">
-                                        <label>Pages</label>
+                                        <label>Số trang</label>
                                         <input type="text" class="form-control" ng-model="book.pages" placeholder="Pages">
-                                        <p ng-show="postForm.pages.$error.number" class="text-danger"> Page is number.</p>
+                                        <p ng-show="postForm.pages.$error.number" class="text-danger"> Vui lòng nhập số</p>
                                     </div>
                                     <div class="form-group">
-                                        <label>Weight</label>
+                                        <label>Khối lượng</label>
                                         <input type="text" class="form-control" ng-model="book.weight" placeholder="Weight">
-                                        <p ng-show="postForm.weight.$error.number" class="text-danger"> weight is number.</p>
+                                        <p ng-show="postForm.weight.$error.number" class="text-danger"> Vui lòng nhập số</p>
                                     </div>
                                     <div class="form-group">
-                                        <label>Width</label>
+                                        <label>Chiều rộng</label>
                                         <input type="text" class="form-control" ng-model="book.size.width" placeholder="Width">
-                                        <p ng-show="postForm.width.$error.number" class="text-danger"> width is number.</p>
+                                        <p ng-show="postForm.width.$error.number" class="text-danger"> Vui lòng nhập số</p>
                                     </div>
                                     <div class="form-group">
-                                        <label>Depth</label>
+                                        <label>Chiều cao</label>
                                         <input type="text" class="form-control" ng-model="book.size.depth" placeholder="Depth">
-                                        <p ng-show="postForm.depth.$error.number" class="text-danger"> depth is number.</p>
+                                        <p ng-show="postForm.depth.$error.number" class="text-danger"> Vui lòng nhập số</p>
                                     </div>
                                     <div class="form-group">
                                         <p class="input-group">
-                                            <label>Release Date</label>
+                                            <label>Ngày phát hành</label>
                                             <input type="text" class="form-control " uib-datepicker-popup="MM/dd/yyyy" ng-model="book.releaseDate" is-open="popup2.opened" datepicker-options="" close-text="Close" />
                                             <span class="input-group-btn ">
                                                 <button type="button" class=" picker btn btn-default btn-md" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -69,16 +70,16 @@
                                         </p>
                                     </div>
                                     <div class="form-group">
-                                        <label>Short Description</label>
+                                        <label>Giới thiệu sơ lược</label>
 
                                         <div text-angular="text-angular" name="shortDescription" ng-model="book.shortDescription" ta-disabled='disabled' class="inputDescription"></div>
                                     </div>
                                     <div class="form-group">
-                                        <label>Full Description</label>
+                                        <label>Giới thiệu chi tiết</label>
                                         <div text-angular="text-angular" name="fullDescription" ng-model="book.fullDescription" ta-disabled='disabled' class="inputDescription"></div>
                                     </div>
                                     <div class="form-group">
-                                        <label>Main Image</label>
+                                        <label>Hình</label>
                                         <input type="url" class="form-control" ng-model="book.images.main" placeholder="Main Image" ng-required="true">
                                     </div>
                                     <!--<div class="form-group">
@@ -94,25 +95,25 @@
                                         <input type="text" class="form-control" ng-model="book.sku" placeholder="Sku">
                                     </div>
                                     <div class="form-group">
-                                        <label>Revious Price</label>
+                                        <label>Giá gốc</label>
                                         <input type="text" class="form-control" ng-model="book.previousPrice" placeholder="Revious Price">
                                         <p ng-show="postForm.previousPrice.$error.number" class="text-danger"> Price is number.</p>
                                     </div>
                                     <div class="form-group">
-                                        <label>Selling Price</label>
+                                        <label>Giá đã giảm</label>
                                         <input type="number" class="form-control" ng-model="book.sellingPrice" placeholder="Selling Price">
                                         <p ng-show="postForm.sellingPrice.$error.number" class="text-danger"> Price is number.</p>
                                     </div>
                                     <div class="form-group">
                                         <p class="input-group">
-                                            <label>Create Date</label>
+                                            <label>Ngày đăng</label>
                                             <input type="text" class="form-control " uib-datepicker-popup="MM/dd/yyyy" ng-model="CreateDate" is-open="popup1.opened" datepicker-options="" close-text="Close" />
                                             <span class="input-group-btn ">
                                                 <button type="button" class=" picker btn btn-default btn-md" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
                                             </span>
                                         </p>
                                     </div>
-                                    <span ng-class="postForm.$invalid?'disable':''"><button ng-disabled="postForm.$invalid" type="submit" class="btn btn-primary">Submit</button></span>
+                                    <span ng-class="postForm.$invalid?'disable':''"><button ng-disabled="postForm.$invalid" type="submit" class="btn btn-primary">Dăng</button></span>
                                 </form>
                             </div>
                         </div>
@@ -122,17 +123,36 @@
                     <div class="panel-heading">Danh sách</div>
                     <div class="panel-body genres">
                         <div class="row" ng-init="getBooks()">
+                            <div class="modal fade" id="{{book._id}}" ng-repeat="book in books| filter: query" role="dialog">
+                                <div class="modal-dialog modal-sm">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header modal-head">
+                                            <button type="button" class="close modal-close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Bạn muốn xóa "{{book.title}}"?</h4>
+                                        </div>
+                                        <div class="modal-body modal-center">
+                                            <p>Bạn chắc chắn muốn xóa chứ?</p>
+                                        </div>
+                                        <hr/>
+                                        <div class="modal-footer modal-last">
+                                            <button type="button" class="btn btn-buy btn-danger  btn-modal" data-dismiss="modal" ng-click="removeBook(book._id)">Xóa</button>
+                                            <button type="button" class="btn btn-buy  btn-modal" data-dismiss="modal">Hủy</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-sm-6 col-lg-4" ng-repeat=" book in books">
                                 <div class="row listpost ">
                                     <div class="col-xs-12 postTitle">
                                         <a ng-click="show " href="#/book/details/{{book._id}}">{{book.title}}</a>
                                         <div class="floatright ">
                                             <a class="btn edit" href="#/edit/{{book._id}}"><i class="fa fa-pencil-square-o " aria-hidden="true "></i></a>
-                                            <a class="btn del" href="" ng-click="removeBook(book._id)"><i class="fa fa-times " aria-hidden="true "></i></a>
+                                            <a class="btn del" href="" data-toggle="modal" data-target="#{{book._id}}"><i class="fa fa-times " aria-hidden="true "></i></a>
                                         </div>
                                     </div>
                                     <div class="col-xs-12 post-preview ">
-                                        <div class="row">
+                                        <div class="row postBody">
                                             <div class="col-xs-7 imgAD-preview">
                                                 <img class="img-responsive picEdit" ng-src="{{book.images.main}}" />
                                             </div>

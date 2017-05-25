@@ -13,11 +13,11 @@
             </div>
         </div>
 
-        <div class="col-md-8 col-lg-9" ng-innit="getBooks()">
-            <div class="rightBar" ng-show="books.length>0">
+        <div class="col-md-8 col-lg-9">
+            <div class="rightBar">
                 <div class="panel panel-primary">
                     <div class="panel-heading titleHead">
-                        <p>{{books[0].genre.name}}</p>
+                        <p>{{genreName()}}</p>
                     </div>
                     <div class="panel-body">
                         <div class="wrap">
@@ -30,7 +30,7 @@
                                             </a>
                                         </div>
                                         <div class="information ">
-                                            <button href="# " class="btn heart "><span class="fa fa-heart "></span></button>
+                                            <button href="# " class="btn heart " ng-click="count = count + 1" ng-init="count=7"><span class="fa fa-heart "> {{count}}</span></button>
                                             <button href="# " class="btn addCart " ng-click="addCart(book)"><span class="glyphicon glyphicon-shopping-cart " ></span></button>
                                             <div class="previousPrice ">{{book.previousPrice| currency:"$ ":0}}</div>
                                             <div class="sellingPrice ">{{book.sellingPrice| currency:"$ ":0}}</div>
@@ -48,16 +48,16 @@
                     </div>
                 </div>
             </div>
-            <div class="rightBar" ng-show="books.length==0">
+            <!--<div class="rightBar" ng-show="books.length==0">
                 <div class="panel panel-primary emptyGenre">
                     <div class="panel-heading titleHead">
-                        <p>Không có sách thuộc thể loại này</p>
+                        <p>{{genreName()}}</p>
                     </div>
                     <div class="panel-body">
-
+                        <p class="empty">Không có sách thuộc thể loại này</p>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 </div>

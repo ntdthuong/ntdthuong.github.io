@@ -3,8 +3,10 @@ app.service('service', function() {
     this.getGenres = 'https://green-web-bookstore.herokuapp.com/api/genres/'
     this.getGenre = 'https://green-web-bookstore.herokuapp.com/api/books/genre/'
     this.getBanners = 'https://green-web-bookstore.herokuapp.com/api/banners/'
+    this.getComment = 'https://green-web-bookstore.herokuapp.com/api/books/comment'
+    this.getUsers = 'https://green-web-bookstore.herokuapp.com/api/users/'
     this.cart = [];
-    this.user = {
+    this.getInfo = {
         'userName': 'Thương Đăng',
         'userAvatarUrl': 'http://sv1.upsieutoc.com/2017/05/11/FullSizeRender2.jpg',
         'userEmail': 'thuong@maxdota.com',

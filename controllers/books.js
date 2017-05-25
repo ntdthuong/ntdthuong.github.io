@@ -1,10 +1,13 @@
-app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams', '$location', '$anchorScroll', '$cookieStore', function($scope, service, $http, $routeParams, $location, $anchorScroll, $cookieStore) {
+app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams', '$location', '$anchorScroll', '$cookieStore', '$route', 'uibDateParser', function($scope, service, $http, $routeParams, $location, $anchorScroll, $cookieStore, $route, uibDateParser) {
+    var root = 'https://green-web-bookstore.herokuapp.com/';
     var config = {
         headers: {
             'Accept': 'application/json;odata=verbose',
             "x-access-token": $scope.token
         }
     };
+
+    $scope.loaded = false;
     $scope.paging = function() {
 
         $scope.totalItems = $scope.books.length;
@@ -18,23 +21,17 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
         };
         $scope.changePage();
     };
-
     $scope.getBooks = function() {
         var id = $routeParams.id;
         $http.get(service.getBooks).success(function(response) {
             $scope.books = response;
             $scope.paging();
 
+
         });
+
     };
-    $scope.getBook = function() {
-        var id = $routeParams.id;
-        console.log(id);
-        $http.get(service.getBooks + id).success(function(response) {
-            $scope.book = response;
-            console.log(response)
-        });
-    };
+
 
     $scope.addBook = function() {
         console.log($scope.book);
@@ -52,7 +49,6 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
         })
 
     }
-
     $scope.updateBook = function() {
         var id = $routeParams.id;
         $http.put(service.getBooks + id, $scope.book).success(function(response) {
@@ -65,6 +61,7 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
             window.location.href = '#/admin/';
         });
     }
+
 
     // date
 
@@ -86,7 +83,7 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
     $scope.getGenres = function() {
         $http.get(service.getGenres).success(function(response) {
             $scope.genres = response;
-
+            $scope.loaded = true;
         })
     };
     $scope.getBanners = function() {
@@ -99,15 +96,14 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
         var id = $routeParams.id;
         $http.get(service.getGenre + id).success(function(response) {
             $scope.books = response;
-            $scope.text = function() {
+            $scope.genreName = function() {
                 for (var i = 0; i < $scope.genres.length; i++) {
-                    if ($scope.genres[i]._id === $routeParams.genreId) {
+                    if ($scope.genres[i]._id === $routeParams.id) {
 
                         return $scope.genres[i].name;
 
                     }
                 }
-
             }
             $scope.paging();
         })
@@ -146,22 +142,46 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
     ];
 
     /*-----End Rating---*/
-    /*-----User---*/
-    $scope.user = service.user;
+
     /*-----cmt---*/
+    $scope.getBook = function() {
+        var id = $routeParams.id;
+        console.log(id);
+        $http.get(service.getBooks + id).success(function(response) {
+            $scope.book = response;
+            $scope.book.createDate = new Date($scope.book.createDate);
+            $scope.book.releaseDate = new Date($scope.book.releaseDate);
+            console.log(response)
+            var rateTotal = 0;
+            $scope.book.comments.rate;
+            for (var i = 0; i < $scope.book.comments.length; i++) {
+                rateTotal += $scope.book.comments[i].rate
+            }
+
+            if (rateTotal == 0) {
+                $scope.rateAvr = 5
+            } else {
+                $scope.rateAvr = rateTotal / $scope.book.comments.length;
+            }
+            $scope.save = Math.round(100 - ($scope.book.sellingPrice / $scope.book.previousPrice) * 100);
+        });
+    };
+
     $scope.comment = {};
+
     $scope.addComment = function(post) {
-        $scope.comment.date = Date.now();
-        $scope.comment.userName = $scope.user.userName;
-        $scope.comment.userAvatarUrl = $scope.user.userAvatarUrl;
+        $scope.comment.createdDate = Date.now();
+        $scope.comment.userId = $scope.user._id;
+        $scope.comment.bookId = $scope.book._id;
         post.comments.push($scope.comment);
+        console.log($scope.comment);
         var req = {
-            method: 'PUT',
-            url: service.books + $routeParams.itemId,
+            method: 'POST',
+            url: service.getComment,
             headers: {
                 'Content-Type': 'application/json'
             },
-            data: post
+            data: $scope.comment
         }
         $http(req).then(function() {
                 console.log('success')
@@ -171,12 +191,29 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
                 console.log('error')
             });
         console.log(post);
-    };
-    /*--------Cart ---------*/
-    $scope.qty = 1;
+        $http(req).then(function() {
+            console.log('success')
+            window.location.reload();
 
+        })
+
+    };
+
+    $scope.getComment = function() {
+        $http.get(service.getComment).success(function(response) {
+            $scope.comment = response;
+            console.log(response)
+        });
+    };
+
+
+    /*--------Cart ---------*/
+    $scope.qtyCart = 0;
+    $scope.countCart = function() {
+        $scope.qtyCart++;
+    };
+    $scope.qty = 1;
     $scope.addCart = function(item) {
-        console.log("addCart ok")
         if (service.cart.length > 0) {
             for (var i = 0; i < service.cart.length; i++) {
                 if (service.cart[i].item.sku === item.sku) {
@@ -196,7 +233,7 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
             }
         } else {
             service.cart.push({ item, qty: $scope.qty });
-            ervice.item.push({ item, qty: $scope.qty });
+            service.item.push({ item, qty: $scope.qty });
         }
 
         console.log("addCart ìf ok")
@@ -270,11 +307,12 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
         if (token === undefined) {
             $location.url("/login")
         }
+        $scope.loaded = true;
     }
 
 
     $scope.summitLogin = function() {
-        $http.post('https://green-web-bookstore.herokuapp.com' + '/api/auth', $scope.loginUser).success(function(response) {
+        $http.post('https://green-web-bookstore.herokuapp.com' + '/api/users/auth', $scope.loginUser).success(function(response) {
             var isSuccess = response.success;
             if (isSuccess) {
                 $cookieStore.put('token', response.token);
@@ -289,11 +327,11 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
             }
         }).error(function(data, status, headers, config) {
             console.log(data, status, headers, config);
-        });;
+        });
     }
 
     $scope.summitSignup = function() {
-        $http.post('https://green-web-bookstore.herokuapp.com' + '/api/signup/', $scope.signUpUser).success(function(response) {
+        $http.post('https://green-web-bookstore.herokuapp.com' + '/api/users/signup/', $scope.signUpUser).success(function(response) {
             var isSuccess = response.success;
             if (isSuccess) {
                 $cookieStore.put('token', response.token);
@@ -319,7 +357,16 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
     $scope.isLogged = function() {
         return $cookieStore.get('token') != undefined;
     }
-
-
-
+    $scope.getUsers = function() {
+        $http.get(service.getUsers).success(function(response) {
+            $scope.users = response;
+        })
+    }
+    $scope.editUser = $scope.user;
+    $scope.updateUser = function() {
+        $http.put(service.getUsers, $scope.editUser).success(function(response) {
+            console.log($scope.user)
+            window.location.href = '#/user/';
+        });
+    }
 }])

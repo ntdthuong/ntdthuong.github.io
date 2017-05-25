@@ -29,7 +29,7 @@
                                             </a>
                                         </div>
                                         <div class="information ">
-                                            <button href="# " class="btn heart "><span class="fa fa-heart "></span></button>
+                                            <button href="# " class="btn heart " ng-click="count = count + 1" ng-init="count=7"><span class="fa fa-heart "> {{count}}</span></button>
                                             <button href="# " class="btn addCart " ng-click="addCart(book)"><span class="glyphicon glyphicon-shopping-cart " ></span></button>
                                             <div class="previousPrice ">{{book.previousPrice| currency:"$ ":0}}</div>
                                             <div class="sellingPrice ">{{book.sellingPrice| currency:"$ ":0}}</div>
