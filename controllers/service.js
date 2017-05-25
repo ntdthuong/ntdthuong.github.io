@@ -6,6 +6,9 @@ app.service('service', function() {
     this.getComment = 'https://green-web-bookstore.herokuapp.com/api/books/comment'
     this.getUsers = 'https://green-web-bookstore.herokuapp.com/api/users/'
     this.cart = [];
+    this.item = [];
+    this.bills = [];
+    this.total = [];
     this.getInfo = {
         'userName': 'Thương Đăng',
         'userAvatarUrl': 'http://sv1.upsieutoc.com/2017/05/11/FullSizeRender2.jpg',

@@ -250,21 +250,6 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
     $scope.sum();
     $scope.bill = {};
 
-    $scope.checkout = function() {
-        if ($scope.cart.length > 0) {
-            $scope.bill.items = service.item;
-            $scope.bill.date = Date.now();
-            $scope.bill.total = $scope.total;
-            service.bills.push($scope.bill);
-            console.log(service.bills)
-            service.item = [];
-            service.cart.splice(0, service.cart.length);
-            $scope.total = 0;
-
-
-        }
-    }
-
     /*------------order--------------*/
     $scope.order = {};
     $scope.order.books = [];
@@ -272,15 +257,15 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
         if ($scope.cart.length > 0) {
 
             $scope.order._user = $scope.user._id;
-            $scope.order.books = bookservice.item;
+            $scope.order.books = service.item;
             $scope.order.total = $scope.total;
             // bookservice.bills.push($scope.order);
             console.log($scope.order)
 
             $http.post(root + 'api/orders', $scope.order).success(function(response) {
                 console.log('success');
-                bookservice.item = [];
-                bookservice.cart.splice(0, bookservice.cart.length);
+                service.item = [];
+                service.cart.splice(0, service.cart.length);
                 $scope.total = 0;
                 $location.url("/")
             }).error(function(data, status, headers, config) {
@@ -411,13 +396,12 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
     }
     $scope.getUserOder = function() {
         console.log(root + 'api/orders/user/' + $scope.user._id)
-            //     $http.get(root + 'api/orders/user/' + $scope.user._id).success(function(response) {
-            //         $scope.orders = response;
-            //         console.log($scope.orders)
+        $http.get(root + 'api/orders/user/' + $scope.user._id).success(function(response) {
+            $scope.orders = response;
+            console.log($scope.orders)
 
-        //     }).error(function(data, status, headers, config) {
-        //         console.log(data, status, headers, config);
-        //     });
-        // }
+        }).error(function(data, status, headers, config) {
+            console.log(data, status, headers, config);
+        });
     }
 }])

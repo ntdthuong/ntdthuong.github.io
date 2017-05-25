@@ -80,6 +80,7 @@ a:hover {
 
 .bggenre {
     background-color: #E9FAF6;
+    min-height: 790px;
 }
 
 .titleHead {
@@ -93,8 +94,9 @@ a:hover {
 
 .emptyGenre,
 .log,
-.user {
-    height: 700px;
+.user,
+.bgCart {
+    min-height: 790px;
 }
 
 .input-group-btn {
