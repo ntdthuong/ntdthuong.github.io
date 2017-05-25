@@ -1,22 +1,22 @@
 <div class="container admin">
-    <div class="row" ng-init="getGenres()">
+    <div class="row">
         <div class="col-md-3 rightBar">
             <div class="panel panel-primary">
                 <div class="panel-heading">Admin</div>
                 <div class="panel-body genres">
                     <ul class="paddLeft">
-                        <li><a ng-click="dbl()" href="#/admin">Đăng sách</a></li>
+                        <li><a href="#/admin">Đăng sách</a></li>
                         <li><a href="#/admin">Quản lý sách</a></li>
                         <li><a href="">Đơn hàng</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="col-md-9" ng-innit="getBooks()">
-            <div class="card card-form ">
+        <div class="col-md-9" ng-init="getOrder()">
+            <div class="cardOrder card-form ">
                 <div ng-repeat="order in orders">
                     <table class="table table-bordered table-hover rwd-table">
-                        <caption>Khách hàng {{order._user.name}}</caption>
+                        <caption>Đơn hàng của <a>{{order._user.name}}</a></caption>
                         <thead>
                             <tr>
 
@@ -31,16 +31,16 @@
                             <tr ng-repeat="item in order.books" class="rowBook">
 
                                 <td class="" data-th="Tên sách">
-                                    <h6>{{item._book.title}}</h6>
+                                    <h5><a href="#/book/details/{{item._book._id}} ">{{item._book.title}}</a></h5>
                                 </td>
-                                <td class="price " data-th="Đơn giá">{{item.price|currency:"$":0}}</td>
+                                <td class="" data-th="Đơn giá">{{item.price|currency:"$":0}}</td>
                                 <td class="" data-th="Sớ lượng">{{item.quantity}}</td>
-                                <td class="price " data-th="Thành tiền">{{item.price*item.quantity| currency:"$":0}}</td>
+                                <td class="" data-th="Thành tiền">{{item.price*item.quantity| currency:"$":0}}</td>
 
                             </tr>
                             <tr>
                                 <th colspan="3">Tổng tiền</th>
-                                <td colspan="2" data-th="Tổng tiền">{{order.total|currency:"$":0}}</td>
+                                <td class="price" colspan="2" data-th="Tổng tiền">{{order.total|currency:"$":0}}</td>
                             </tr>
                         </tbody>
                     </table>

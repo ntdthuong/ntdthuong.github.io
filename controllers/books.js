@@ -6,7 +6,6 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
             "x-access-token": $scope.token
         }
     };
-
     $scope.loaded = false;
     $scope.paging = function() {
 
@@ -265,6 +264,34 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
 
         }
     }
+
+    /*------------order--------------*/
+    $scope.order = {};
+    $scope.order.books = [];
+    $scope.checkout = function() {
+        if ($scope.cart.length > 0) {
+
+            $scope.order._user = $scope.user._id;
+            $scope.order.books = bookservice.item;
+            $scope.order.total = $scope.total;
+            // bookservice.bills.push($scope.order);
+            console.log($scope.order)
+
+            $http.post(root + 'api/orders', $scope.order).success(function(response) {
+                console.log('success');
+                bookservice.item = [];
+                bookservice.cart.splice(0, bookservice.cart.length);
+                $scope.total = 0;
+                $location.url("/")
+            }).error(function(data, status, headers, config) {
+                console.log(data, status, headers, config);
+            });
+
+
+
+        }
+    }
+
     $scope.changeQty = function(index) {
         service.item[index].qty = service.cart[index].qty;
         $scope.total = 0;
@@ -366,7 +393,31 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
     $scope.updateUser = function() {
         $http.put(service.getUsers, $scope.editUser).success(function(response) {
             console.log($scope.user)
-            window.location.href = '#/user/';
+            $scope.user = response;
+            $cookieStore.put('user', response.user);
+            $scope.user = $cookieStore.get('user');
+            $location.url("#/user");
         });
+    }
+
+    $scope.getOrder = function() {
+        $http.get(root + 'api/orders').success(function(response) {
+            $scope.orders = response;
+
+        }).error(function(data, status, headers, config) {
+            console.log(data, status, headers, config);
+        });
+
+    }
+    $scope.getUserOder = function() {
+        console.log(root + 'api/orders/user/' + $scope.user._id)
+            //     $http.get(root + 'api/orders/user/' + $scope.user._id).success(function(response) {
+            //         $scope.orders = response;
+            //         console.log($scope.orders)
+
+        //     }).error(function(data, status, headers, config) {
+        //         console.log(data, status, headers, config);
+        //     });
+        // }
     }
 }])

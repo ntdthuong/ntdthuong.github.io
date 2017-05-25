@@ -555,3 +555,17 @@ ul.star {
     justify-content: center;
     align-items: center;
 }
+
+
+/*----order------*/
+
+.cardOrder {
+    background-color: #fff;
+    padding: 15px;
+}
+
+caption {
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+}
