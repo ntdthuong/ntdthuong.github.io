@@ -70,7 +70,7 @@
                             </form>
                         </li>
                         <li class="search_hidden" ng-click="SearchFunc()"><a><span class="glyphicon glyphicon-search "></span></a></li>
-                        <li ng-hide="isLogged()"><a href="#/login" ng-click="scroll()"><span class="glyphicon glyphicon-user "></span></a></li>
+                        <li ng-hide="isLogged()"><a href="#/user" ng-click="scroll()"><span class="glyphicon glyphicon-user "></span></a></li>
                         <li ng-show="isLogged()" class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown">{{user.name}} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -78,24 +78,18 @@
                                 <li ng-click="scroll()"><a ng-click="logOut()" ng-click="scroll()">Logout</a></li>
                             </ul>
                         </li>
-                        <!--<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href=""><span class="glyphicon glyphicon-user "></span><span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#/admin" ng-click="scroll()">Admin</a></li>
-                                <li><a href="#/user" ng-click="scroll()">Hồ sơ cá nhân</a></li>
-                                <li><a href="" ng-click="scroll()">Đăng xuất</a></li>
-                            </ul>
-                        </li>-->
+
                         <li class="dropdown">
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-shopping-cart " ></span><span class="qty" >({{cart.length}})</span><span class="caret"></span></a>
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-shopping-cart " ></span><span class="qty" > ({{all.totalQty}})</span><span class="caret"></span></a>
                             <ul class="dropdown-menu dropdown-cart" role="menu" ng-show="cart.length>0">
                                 <li ng-repeat="item in cart">
                                     <span class="item">
                                         <span class="item-left">
-                                            <img ng-src="{{item.item.images.main}}"  alt="" />
+                                            <img ng-src="{{item.image}}"  alt="" />
                                             <span class="item-info">
-                                                <span>{{item.item.title}}</span>
-                                    <span>{{item.item.sellingPrice|currency:"$":0}}</span>
-                                    <span class="qty">{{item.qty}} quyển</span>
+                                                <span>{{item.title}}</span>
+                                    <span>{{item.price|number:0}} đ</span>
+                                    <span class="qty">{{item.quantity}} quyển</span>
                                     </span>
                                     </span>
                                     <span class="item-right">
@@ -114,7 +108,6 @@
         </nav>
     </header>
     <div class="container-fluid page">
-
         <div ng-view>
         </div>
 

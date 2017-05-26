@@ -1,4 +1,4 @@
-<div class="container" ng-init="getBooks()">
+<div class="container" ng-init="getUserOder()">
     <div class="row viewCart">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-primary ">
@@ -15,17 +15,20 @@
                             Giá
                         </div>
                     </div>
-                    <div class="row  ">
-                        <div class="row divider  product" ng-repeat="book in books | limitTo: 1">
+                    <div class="row  " ng-repeat="order in orders">
+                        <div class="row divider  product" ng-repeat="item in order.books">
                             <div class="col-xs-6 col-sm-8  titleBook ">
-                                {{book.title}}
+                                {{item._book.title}}
                             </div>
                             <div class="col-xs-2 col-sm-2  ">
-                                Sl: <input name="quantity" value="1" type="number" class="form-control sl" ng-change="changeQty($index)" />
+                                Sl: <input name="quantity" value="{{item.quantity}}" type="number" class="form-control sl" ng-change="changeQty($index)" />
                             </div>
                             <div class="col-xs-4 col-sm-2  ">
-                                $100.000<br/>
+                                {{item.price|currency:"$":0}}<br/>
                                 <a class="del" ng-click='removeCart($index)'><i class="fa fa-times" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="row">
+                                {{order.total|currency:"$":0}}
                             </div>
                         </div>
                         <div class="row infoOrder">

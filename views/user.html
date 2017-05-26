@@ -12,12 +12,15 @@
             </div>
         </div>
 
-        <div class="col-sm-9" ng-innit="getBooks()">
+        <div class="col-sm-9" ng-init="viewProfile()">
             <div class="panel panel-primary" ng-hide="showme">
                 <div class="panel-heading">Thông tin</div>
                 <div class="panel-body">
                     <div class=" wrap" ng-init="viewProfile()">
                         <div class="profile-content" ng-show="!editProfie">
+                            <div style="width:150px">
+                                <img ng-src="{{user.avatarUrl}}" class="img-circle img-raised img-responsive user-image" alt="">
+                            </div>
                             <h4>{{user.name}}</h4>
                             <p>Email: {{user.email}}</p>
                             <p>Địa chỉ: 21/15 Vạn Kiếp, p.3, q.Bình Thạnh </p>
@@ -50,13 +53,46 @@
                 </div>
             </div>
 
-            <div class="panel panel-primary" ng-show="showme">
-                <div class="panel-heading">Đơn hàng</div>
-                <div class="panel-body">
-                    <h2>Bạn chưa có đơn hàng</h2>
+            <div class=" row panel panel-primary" ng-show="showme" ng-init="getUserOder()">
+                <div class="panel-heading ">Đơn hàng</div>
+                <div class="panel-body ">
+
+                    <div class="profile-content">
+                        <div ng-repeat="order in orders">
+                            <table class="table table-bordered table-hover rwd-table">
+                                <caption class="text-left"><strong>MSĐH:</strong> {{$index+1}}</caption>
+                                <thead>
+                                    <tr>
+
+                                        <th class=" ">Tên Sách</th>
+                                        <th class="">Đơn giá</th>
+                                        <th class="">Số lượng</th>
+                                        <th class="">Thành tiền</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in order.books" class="rowBook">
+
+                                        <td class="" data-th="Tên sách">
+                                            <h5><a a href="#/book/details/{{item._book._id}} ">{{item._book.title}}</a></h5>
+                                        </td>
+                                        <td data-th="Đơn giá"><span>{{item.price|number:0}} đ</span></td>
+                                        <td class="" data-th="Sớ lượng">{{item.quantity}}</td>
+                                        <td data-th="Thành tiền"><span>{{item.price*item.quantity| number:0}} đ</span></td>
+
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3">Tổng tiền</th>
+                                        <td colspan="2" data-th="Tổng tiền" class="price ">{{order.total|number:0}} đ</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
-
     </div>
 </div>

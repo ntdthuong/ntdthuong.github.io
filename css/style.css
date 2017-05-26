@@ -66,6 +66,11 @@ a:hover {
     font-size: 20px;
 }
 
+.comeback {
+    float: left;
+    font-size: 30px;
+}
+
 .page {
     margin-top: 50px;
     background-color: #E9FAF6;
@@ -85,6 +90,7 @@ a:hover {
 
 .titleHead {
     height: 50px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .empty {
@@ -326,7 +332,7 @@ ul.dropdown-cart li .item-right button {
     font-size: 18px;
     color: #26347A;
     padding: 10px 0;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Inconsolata', monospace;
     height: 65px;
 }
 
@@ -384,7 +390,7 @@ body>div>div>div>div.panel.panel-primary>div.panel-body>div>div>div.col-xs-6.col
 .titleDetails,
 .contentProducts {
     font-size: 22px;
-    font-family: bold;
+    font-weight: bold;
 }
 
 .ProductsDetails {
@@ -466,6 +472,13 @@ ul.star {
     padding-top: 0;
     padding-right: 5px;
     padding-left: 0;
+}
+
+.un-iden {
+    text-align: center;
+    font-size: 25px;
+    color: red;
+    font-family: 'Inconsolata', monospace;
 }
 
 
@@ -571,3 +584,11 @@ caption {
     font-size: 15px;
     font-weight: bold;
 }
+
+.container {
+    min-height: 1000px;
+    background-color: #E9FAF6;
+}
+
+
+/****** LOGIN MODAL ******/

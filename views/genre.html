@@ -19,10 +19,13 @@
                     <div class="panel-heading titleHead">
                         <p>{{genreName()}}</p>
                     </div>
+                    <div class="un-iden" ng-show="!unidentified">
+                        <span>{{result}}</span>
+                    </div>
                     <div class="panel-body">
                         <div class="wrap">
                             <div class="row">
-                                <div class="col-sm-6 col-md-4 col-lg-3" ng-repeat=" book in filteredBooks">
+                                <div class="col-sm-6 col-md-4 col-lg-3" ng-repeat=" book in books">
                                     <div class="items ">
                                         <div class="imgBook ">
                                             <a ng-click="show " href="#/book/details/{{book._id}} ">
@@ -41,9 +44,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="pagination">
-                            <ul uib-pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" max-size="maxSize" class="pagination-sm pagination-danger" boundary-link-numbers="true" next-text=">>" previous-text="<<" ng-click="changePage();scroll()"></ul>
                         </div>
                     </div>
                 </div>

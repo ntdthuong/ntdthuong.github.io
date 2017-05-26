@@ -102,6 +102,12 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
                         return $scope.genres[i].name;
 
                     }
+                    if ($scope.books.length > 0) {
+                        $scope.unidentified = true;
+                    } else {
+                        $scope.unidentified = false;
+                        $scope.result = "Chưa có sách trong thể loại này";
+                    }
                 }
             }
             $scope.paging();
@@ -116,12 +122,12 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
         $http.get(service.getBooks + $scope.searchBy + '/' + $scope.textSearch).success(function(response) {
             $scope.searchBook = response;
             $scope.bigTotalItems = $scope.searchBook.length;
+
         })
     }
     $scope.submitSearch = function() {
         console.log(service.getBooks + $scope.searchBy + $scope.textSearch)
         window.location.href = '#/search/' + $scope.textSearch;
-        // $scope.urlSearch = '#/search/' + $scope.textSearch;
     }
     $scope.showSearch = false;
     $scope.SearchFunc = function() {
@@ -129,6 +135,7 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
     }
 
     /*-----Rating---*/
+
     /*-----rate ---*/
 
     $scope.max = 5;
@@ -207,66 +214,91 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
 
 
     /*--------Cart ---------*/
-    $scope.qtyCart = 0;
-    $scope.countCart = function() {
-        $scope.qtyCart++;
-    };
+
     $scope.qty = 1;
-    $scope.addCart = function(item) {
-        if (service.cart.length > 0) {
-            for (var i = 0; i < service.cart.length; i++) {
-                if (service.cart[i].item.sku === item.sku) {
-                    $scope.addedItem = true;
-                    service.cart[i].qty += $scope.qty;
-                    service.item[i].qty += $scope.qty;
-                }
+    $scope.all = service.total;
 
-
-            }
-            if ($scope.addedItem) {
-                $scope.addedItem = false;
-
-            } else {
-                service.cart.push({ item, qty: 1 });
-                service.item.push({ item, qty: 1 });
-            }
-        } else {
-            service.cart.push({ item, qty: $scope.qty });
-            service.item.push({ item, qty: $scope.qty });
-        }
-
-        console.log("addCart ìf ok")
-    }
-    $scope.cart = service.cart;
-
-    /*------------Bill--------------*/
-    $scope.total = 0;
     $scope.sum = function() {
-        for (var i = 0; i < service.cart.length; i++) {
-            $scope.total += service.cart[i].item.sellingPrice * service.cart[i].qty;
+        service.total.totalQty = 0;
+        service.total.totalPrice = 0;
+        for (var i = 0; i < $scope.cart.length; i++) {
+
+            service.total.totalPrice += $scope.cart[i].price * $scope.cart[i].quantity;
+            service.total.totalQty += $scope.cart[i].quantity;
+        }
+
+
+
+
+
+    }
+
+
+
+    $scope.addCart = function(item) {
+        if ($scope.qty > 0) {
+
+            if (service.cart.length > 0) {
+                for (var i = 0; i < service.cart.length; i++) {
+                    if (service.cart[i]._book === item._id) {
+                        $scope.addedItem = true;
+                        service.cart[i].quantity += $scope.qty;
+                        service.item.quantity = service.cart.quantity;
+                        $cookieStore.put('cart', service.cart);
+                        $cookieStore.put('order', service.item);
+                        $scope.cart = service.cart;
+                    }
+
+
+                }
+                if ($scope.addedItem) {
+                    $scope.addedItem = false;
+
+                } else {
+                    service.cart.push({ _book: item._id, title: item.title, price: item.sellingPrice, image: item.images.main, quantity: $scope.qty });
+                    service.item.push({ _book: item._id, price: item.sellingPrice, quantity: $scope.qty });
+                    console.log(item._id)
+                    $cookieStore.put('order', service.item);
+                    $cookieStore.put('cart', service.cart);
+                    $scope.cart = service.cart;
+
+                }
+            } else {
+                service.cart.push({ _book: item._id, title: item.title, price: item.sellingPrice, image: item.images.main, quantity: $scope.qty });
+                service.item.push({ _book: item._id, price: item.sellingPrice, quantity: $scope.qty });
+                $cookieStore.put('order', service.item);
+                $cookieStore.put('cart', service.cart);
+                $scope.cart = service.cart;
+
+            }
 
         }
+        $scope.sum();
+
     }
-    $scope.sum();
-    $scope.bill = {};
+
 
     /*------------order--------------*/
     $scope.order = {};
     $scope.order.books = [];
+
     $scope.checkout = function() {
-        if ($scope.cart.length > 0) {
+        if ($scope.cart.length > 0 && $scope.all.totalPrice > 0) {
 
             $scope.order._user = $scope.user._id;
             $scope.order.books = service.item;
-            $scope.order.total = $scope.total;
-            // bookservice.bills.push($scope.order);
+            $scope.order.total = $scope.all.totalPrice;
+
             console.log($scope.order)
 
             $http.post(root + 'api/orders', $scope.order).success(function(response) {
                 console.log('success');
+                $cookieStore.remove('cart');
+                $cookieStore.remove('order');
                 service.item = [];
                 service.cart.splice(0, service.cart.length);
-                $scope.total = 0;
+                $scope.all.totalPrice = 0;
+                $scope.all.totalQty = 0;
                 $location.url("/")
             }).error(function(data, status, headers, config) {
                 console.log(data, status, headers, config);
@@ -291,6 +323,8 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
         service.item.splice(item, 1);
         $scope.total = 0;
         $scope.sum();
+        $cookieStore.put('order', service.item);
+        $cookieStore.put('cart', service.cart);
 
     }
 
@@ -332,7 +366,7 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
                 $scope.user = $cookieStore.get('user');
                 $scope.token = $cookieStore.get('token');
                 //Redirect here
-                $location.url("/")
+                window.location.reload();
             } else {
                 //Raise Error
                 alert(response.message);
@@ -363,8 +397,30 @@ app.controller("BooksController", ['$scope', 'service', '$http', '$routeParams',
 
     $scope.init = function() {
         $scope.user = $cookieStore.get('user');
+        $scope.editProfile = $cookieStore.get('user');
         $scope.token = $cookieStore.get('token');
+        service.cart = $cookieStore.get('cart');
+        $scope.cart = service.cart;
+        service.item = $cookieStore.get('order');
+        if ($scope.order !== undefined && $scope.cart !== undefined) {
+            $scope.sum();
+        } else {
+            service.cart = [];
+
+            service.item = [];
+            $scope.cart = service.cart;
+            $scope.all.totalQty = 0;
+        };
+
+        console.log($scope.order);
+        $scope.loadLogin = function() {
+            var token = $cookieStore.get('token');
+            if (token !== undefined) {
+                $location.url("/")
+            }
+        }
     }
+
 
     $scope.isLogged = function() {
         return $cookieStore.get('token') != undefined;
