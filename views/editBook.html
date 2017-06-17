@@ -9,7 +9,7 @@
                     <form name="postForm" ng-submit="updateBook()" ng-init="getBook()">
                         <div class="form-group">
                             <label>Tiêu đề</label>
-                            <input type="text" class="form-control" ng-model="book.title" placeholder="Title">
+                            <input type="text" class="form-control" ng-model="book.title" placeholder="Title" ng-required="true">
                         </div>
                         <div class="form-group">
                             <label>Thể loại</label>
@@ -17,7 +17,7 @@
                         </div>
                         <div class="form-group">
                             <label>Tác giả</label>
-                            <input type="text" class="form-control" ng-model="book.author" placeholder="Author">
+                            <input type="text" class="form-control" ng-model="book.author" placeholder="Author" ng-required="true">
                         </div>
                         <div class="form-group">
                             <label>Nhà xuất bản</label>
@@ -25,19 +25,19 @@
                         </div>
                         <div class="form-group">
                             <label>Số trang</label>
-                            <input type="text" class="form-control" ng-model="book.pages" placeholder="Pages">
+                            <input type="number" class="form-control" ng-model="book.pages" placeholder="Pages">
                         </div>
                         <div class="form-group">
                             <label>Khối lượng</label>
-                            <input type="text" class="form-control" ng-model="book.weight" placeholder="Weight">
+                            <input type="number" class="form-control" ng-model="book.weight" placeholder="Weight">
                         </div>
                         <div class="form-group">
                             <label>Chiều rộng</label>
-                            <input type="text" class="form-control" ng-model="book.size.width" placeholder="Width">
+                            <input type="number" class="form-control" ng-model="book.size.width" placeholder="Width">
                         </div>
                         <div class="form-group">
                             <label>Chiều dài</label>
-                            <input type="text" class="form-control" ng-model="book.size.depth" placeholder="Depth">
+                            <input type="number" class="form-control" ng-model="book.size.depth" placeholder="Depth">
                         </div>
                         <div class="form-group">
                             <p class="input-group">
@@ -59,7 +59,7 @@
                         </div>
                         <div class="form-group">
                             <label>Hình</label>
-                            <input type="text" class="form-control" ng-model="book.images.main" placeholder="Main Image">
+                            <input type="url" class="form-control" ng-model="book.images.main" placeholder="Main Image" ng-required="true">
                         </div>
                         <!--<div class="form-group">
                             <label>First Image</label>
@@ -75,7 +75,7 @@
                         </div>
                         <div class="form-group">
                             <label>Giá gốc</label>
-                            <input type="text" class="form-control" ng-model="book.previousPrice" placeholder="Revious Price">
+                            <input type="number" class="form-control" ng-model="book.previousPrice" placeholder="Revious Price">
                         </div>
                         <div class="form-group">
                             <label>Giá đã giảm</label>
@@ -91,7 +91,7 @@
                             </p>
                         </div>
 
-                        <span ng-class="postForm.$invalid?'disable':''"><button ng-disabled="postForm.$invalid" type="submit" class="btn btn-primary">Đăng</button></span>
+                        <span ng-class="postForm.$invalid?'disable':''"><button ng-disabled="postForm.$invalid" type="submit" class="btn btn-primary">Cập nhật</button></span>
                     </form>
                 </div>
             </div>

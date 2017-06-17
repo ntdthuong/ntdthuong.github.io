@@ -37,14 +37,15 @@
                             </div>
                             <div class="form-group">
                                 <input ng-model="user.password" type="password" name="password" ng-model="editUser.password" class="form-control " minlength="5" placeholder="Mật khẩu mới" ng-required="true" minlength="6">
+                                <p ng-show="formProfile.password.$invalid && !formProfile.password.$pristine" class="text-danger"> Password không hợp lệ</p>
                             </div>
                             <div class="form-group">
-                                <input ng-model="again" type="password" name="passwordConfirm" ng-model="editUser.passwordConfirm" compare-to="editUser.password" class="form-control " placeholder="Nhập lại password" ng-required="true">
+                                <input ng-model="again" type="password" name="passwordConfirm" compare-to="editUser.password" ng-model="editUser.passwordConfirm" compare-to="editUser.password" class="form-control " placeholder="Nhập lại password" ng-required="true">
                                 <p ng-show="formProfile.passwordConfirm.$invalid && !formProfile.passwordConfirm.$pristine" class="text-danger"> Password không hợp lệ</p>
                             </div>
                             <div class="form-group">
                                 <input type="url" name="avatarUrl" ng-model="user.avatarUrl" class="form-control " placeholder="Nhập đường dẫn ảnh" ng-required="true">
-                                <p ng-show="formProfile.avatarUrl.$invalid && !formProfile.passwordConfirm.$pristine" class="text-danger"> Đường dẫn không hợp lệ</p>
+                                <p ng-show="formProfile.avatarUrl.$invalid && !formProfile.avatarUrl.$pristine" class="text-danger"> Đường dẫn không hợp lệ</p>
                             </div>
                             <div class="col-xs-6"><input class="btn btn-danger " type="reset" ng-click="editProfie=false"></div>
                             <div class="col-xs-6"><input type="submit" value="Thay đổi" class="btn btn-success pull-right"></div>

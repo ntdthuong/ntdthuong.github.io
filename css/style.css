@@ -442,6 +442,16 @@ ul.star {
 
 /*admin view*/
 
+input.ng-invalid {
+    background-color: #ffe6e6;
+    color: red;
+}
+
+input.ng-valid {
+    background-color: #e6ffe6;
+    color: green;
+}
+
 .imgAD-preview {
     height: 170px;
     overflow: hidden;
