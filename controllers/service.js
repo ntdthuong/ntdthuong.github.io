@@ -13,8 +13,8 @@ app.service('service', function() {
         'userName': 'Thương Đăng',
         'userAvatarUrl': 'http://sv1.upsieutoc.com/2017/05/11/FullSizeRender2.jpg',
         'userEmail': 'thuong@maxdota.com',
-        'address': '21/15 Vạn Kiếp, phường 3, quận Bình Thạnh',
-        'phone': '0931 334 424',
+        'address': '',
+        'phone': '',
         'like': []
     }
     this.bills = [];
